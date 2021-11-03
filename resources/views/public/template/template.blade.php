@@ -9,7 +9,7 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										<img src="https://icones.pro/wp-content/uploads/2021/03/symbole-du-docteur-icone-png-vert.png" alt="Logo PathologIA" class="img-fluid" width="300" height="300" />
+										<img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid" width="300" height="300" />
 									</div>
                                     @error('error')
                                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
