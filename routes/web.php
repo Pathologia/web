@@ -19,6 +19,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/', [ConnexionController::class, 'redirectLogin'])->name('login.redirect');
     Route::prefix('/public')->group(function () {
         Route::get('/', [ConnexionController::class, 'show'])->name('login.show');
+        Route::get('/', [ConnexionController::class, 'show'])->name('login');
         Route::post('/', [ConnexionController::class, 'login'])->name('login.connect');
 
         Route::get('/password', [ConnexionController::class, 'showPassword'])->name('password.show');
@@ -30,5 +31,6 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('/auth')->group(function () {
         Route::get('/home', [ConnexionController::class, 'showHome'])->name('home.show');
+        Route::get('/logout', [ConnexionController::class, 'logout'])->name('user.logout');
     });
 });

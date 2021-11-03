@@ -20,7 +20,7 @@
             <div class="container-fluid">
                 <div class="row text-muted">
                     <div class="col-12 text-center">
-                        <a class="dropdown-item text-danger" style="border-radius:25px;" href=""><i class="fas fa-sign-out-alt"></i> Me déconnecter</a>
+                        <a class="dropdown-item text-danger" style="border-radius:25px;" href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i> Me déconnecter</a>
                     </div>
                 </div>
             </div>
