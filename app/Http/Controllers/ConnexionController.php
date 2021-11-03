@@ -10,29 +10,6 @@ use Illuminate\Support\Facades\Log;
 
 class ConnexionController extends Controller
 {
-    public function show()
-    {
-        return view('public.login');
-    }
-
-    public function showPassword()
-    {
-        return view('public.password');
-    }
-
-    public function redirectLogin()
-    {
-        return redirect()->route('login.show');
-    }
-
-    public function showHome()
-    {
-        $user = Auth::user();
-        return view('auth.template.template', [
-            'user'=>$user
-        ]);
-    }
-
     public function login(Request $request)
     {
         $crendentials = $this->validate($request, [

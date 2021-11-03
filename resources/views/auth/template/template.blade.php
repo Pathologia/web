@@ -26,6 +26,9 @@
                             </div>
                         </div>
                     @enderror
+                    @yield('auth.widget.interface.show')
+                    @yield('auth.user.profil.show')
+
 				</div>
 			</main>
             @include('auth.template.footer')

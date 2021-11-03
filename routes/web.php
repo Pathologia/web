@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 //Route public -> non authentifié
 Route::middleware('guest')->group(function () {
-    Route::get('/', [ConnexionController::class, 'redirectLogin'])->name('login.redirect');
+    Route::get('/', [ViewController::class, 'redirectLogin'])->name('login.redirect');
     Route::prefix('/public')->group(function () {
-        Route::get('/', [ConnexionController::class, 'show'])->name('login.show');
-        Route::get('/', [ConnexionController::class, 'show'])->name('login');
+        Route::get('/', [ViewController::class, 'show'])->name('login');
         Route::post('/', [ConnexionController::class, 'login'])->name('login.connect');
 
-        Route::get('/password', [ConnexionController::class, 'showPassword'])->name('password.show');
+        Route::get('/password', [ViewController::class, 'showPassword'])->name('password.show');
         Route::post('/password', [ConnexionController::class, 'reset'])->name('password.reset');
     });
 });
@@ -30,7 +31,13 @@ Route::middleware('guest')->group(function () {
 // Route Auth -> Utilisateur authentifié (via Middleware)
 Route::middleware('auth')->group(function () {
     Route::prefix('/auth')->group(function () {
-        Route::get('/home', [ConnexionController::class, 'showHome'])->name('home.show');
+        Route::get('/home', [ViewController::class, 'showHome'])->name('home.show');
         Route::get('/logout', [ConnexionController::class, 'logout'])->name('user.logout');
+
+        Route::prefix('/user')->group(function () {
+            Route::get('/me', [UserController::class, 'show'])->name('user.show');
+            Route::put('/me', [UserController::class, 'update'])->name('user.update');
+        });
+
     });
 });
