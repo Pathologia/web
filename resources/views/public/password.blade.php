@@ -2,6 +2,7 @@
 @section('public.login.show')
 <div class="text-center mb-3">
     <img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
+    <h4 class="mb-2 text-white">Réinitialiser mon mot de passe</h4>
 </div>
 <form action="" method="POST">
     @csrf
@@ -12,24 +13,16 @@
         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
     @enderror
     <div class="mb-3">
-        <input class="form-control form-control-lg @error('password') is-invalid @enderror" type="password" name="password" placeholder="Votre mot de passe" />
+        <input class="form-control form-control-lg @error('email') is-invalid @enderror" type="email" name="email" placeholder="Votre adresse email" />
         <small>
-            <a href="{{route('password.show')}}" class="text-warning">Mot de passe oublié ?</a>
+            <a href="{{route('login.show')}}" class="text-warning">Se connecter</a>
         </small>
     </div>
     @error('password')
         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
     @enderror
-    <div>
-        <label class="form-check">
-        <input class="form-check-input" type="checkbox" name="remember" checked>
-        <span class="form-check-label text-white">
-        Se souvenir de moi
-        </span>
-    </label>
-    </div>
-    <div class="text-center mt-3">
-        <button type="submit" class="btn btn-lg btn-warning">Se connecter</button>
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-lg btn-warning">Réinitialiser mon mot de passe</button>
     </div>
 </form>
 @endsection

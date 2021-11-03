@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConnexionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('public.login');
+//Route public -> non authentifié
+Route::middleware('guest')->group(function () {
+    Route::get('/', [ConnexionController::class, 'redirectLogin'])->name('login.redirect');
+    Route::prefix('/public')->group(function () {
+        Route::get('/', [ConnexionController::class, 'show'])->name('login.show');
+        Route::get('/password', [ConnexionController::class, 'showPassword'])->name('password.show');
+        Route::get('/auth/home', [ConnexionController::class, 'showHome'])->name('home.show');
+    });
 });
+
+// Route Auth -> Utilisateur authentifié (via Middleware)
+// Route::middleware('auth')->group(function () {
+//     Route::prefix('/auth')->group(function () {
+//     });
+// });
