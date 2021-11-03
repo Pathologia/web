@@ -6,14 +6,14 @@ Le projet PathologIA sorti d'un projet étudiant, à pour but de venir en aide �
 
 ### Equipe de développement
 
-- **[Ornella HELVAS]**
-- **[Samuel NERISSON]**
-- **[Jean Philippe Cedric N'DRI]**
-- **[Lucas GURY]**
-- **[Solène MARTINI]**
-- **[Jeremy DURA]**
-- **[Héline MOREIRA]**
-- **[Maxime LARROZE]**
+- **[Ornella HELVAS]** - Chef de projet
+- **[Samuel NERISSON]** - Data Ingénieur
+- **[Lucas GURY]** - Data Ingénieur
+- **[Solène MARTINI]** - Data Ingénieur
+- **[Jeremy DURA]** - Data Ingénieur
+- **[Héline MOREIRA]** - Data Ingénieur
+- **[Thibaut ANDRE]** - Développeur web
+- **[Maxime LARROZE]** - Développeur web
 
 ## Vunérabilités & Sécurité
 
