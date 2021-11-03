@@ -16,3 +16,4 @@ yarn-error.log
 storage/debugbar/
 composer.lock
 package-lock.json
+public/images/
