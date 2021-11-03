@@ -15,7 +15,7 @@
     <div class="mb-3">
         <input class="form-control form-control-lg @error('email') is-invalid @enderror" type="email" name="email" placeholder="Votre adresse email" />
         <small>
-            <a href="{{route('login.show')}}" class="text-warning">Se connecter</a>
+            <a href="{{route('login')}}" class="text-warning">Se connecter</a>
         </small>
     </div>
     @error('password')

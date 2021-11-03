@@ -30,7 +30,7 @@ class ConnexionController extends Controller
             $request->session()->regenerate();
             return redirect()->route('home.show');
         }
-        return redirect()->route('login.show')->withErrors(['error' => 'Connexion impossible. Veuillez vérifier votre identifiant / mot de passe']);
+        return redirect()->route('login')->withErrors(['error' => 'Connexion impossible. Veuillez vérifier votre identifiant / mot de passe']);
     }
 
     public function logout()
