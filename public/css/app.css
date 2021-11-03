@@ -10019,9 +10019,12 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.bg-medium {
+  background-color: rgba(51, 51, 51, 0.712);
+}
+
 .bg-medical {
   background-image: url(/images/bg-medical-01.jpg?e9026d1f1efa14c5e831656103a9e08b);
-  /* background-color: #EDEDED; */
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
@@ -10029,4 +10032,21 @@ h3 {
   height: 100%;
   position: fixed;
   z-index: 0;
+}
+
+.widget:hover {
+  background-color: rgba(250, 250, 250, 0.767);
+  border-radius: 10px !important;
+}
+
+.widget {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px !important;
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #1A263D;
+  border-color: #1A263D;
 }
