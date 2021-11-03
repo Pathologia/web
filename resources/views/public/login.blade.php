@@ -6,9 +6,9 @@
 <form action="{{route('login.connect')}}" method="POST">
     @csrf
     <div class="mb-3">
-        <input class="form-control form-control-lg @error('identifiant') is-invalid @enderror" type="text" name="identifiant" placeholder="Votre identifiant" />
+        <input class="form-control form-control-lg @error('username') is-invalid @enderror" type="text" name="username" placeholder="Votre identifiant" />
     </div>
-    @error('identifiant')
+    @error('username')
         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
     @enderror
     <div class="mb-3">

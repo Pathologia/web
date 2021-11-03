@@ -27,13 +27,16 @@ class ConnexionController extends Controller
 
     public function showHome()
     {
-        return view('auth.template.template');
+        $user = Auth::user();
+        return view('auth.template.template', [
+            'user'=>$user
+        ]);
     }
 
     public function login(Request $request)
     {
         $crendentials = $this->validate($request, [
-            'identifiant' => 'required',
+            'username' => 'required',
             'password' => 'required',
         ]);
 

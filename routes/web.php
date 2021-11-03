@@ -23,14 +23,12 @@ Route::middleware('guest')->group(function () {
 
         Route::get('/password', [ConnexionController::class, 'showPassword'])->name('password.show');
         Route::post('/password', [ConnexionController::class, 'reset'])->name('password.reset');
-
-        Route::get('/auth/home', [ConnexionController::class, 'showHome'])->name('home.show');
-
     });
 });
 
 // Route Auth -> Utilisateur authentifié (via Middleware)
-// Route::middleware('auth')->group(function () {
-//     Route::prefix('/auth')->group(function () {
-//     });
-// });
+Route::middleware('auth')->group(function () {
+    Route::prefix('/auth')->group(function () {
+        Route::get('/home', [ConnexionController::class, 'showHome'])->name('home.show');
+    });
+});
