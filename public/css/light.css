@@ -12120,7 +12120,7 @@
   }
   body[data-theme=colored] footer.footer,
   body[data-theme=dark] footer.footer {
-   background:#fff
+   /* background:#fff */
   }
   footer.footer ul {
    margin-bottom:0
@@ -12377,7 +12377,7 @@
   }
   .navbar-bg,
   body[data-theme=dark] .navbar-bg {
-   background:#fff
+   /* background:#fff */
   }
   body[data-theme=light] .navbar-bg {
    background:linear-gradient(90deg,hsla(0,0%,100%,.5),#fff 3%,#fff)
@@ -12649,7 +12649,7 @@
   }
   body[data-theme=dark] .sidebar-link,
   body[data-theme=dark] a.sidebar-link {
-   background:#222e3c
+   /* background:#222e3c */
   }
   body[data-theme=colored] .sidebar-link,
   body[data-theme=colored] a.sidebar-link,
@@ -12714,7 +12714,7 @@
    color:rgba(248,249,250,.85)
   }
   body[data-theme=dark] .sidebar-link:hover {
-   background:#222e3c
+   /* background:#222e3c */
   }
   body[data-theme=colored] .sidebar-link:hover,
   body[data-theme=light] .sidebar-link:hover {
@@ -12759,7 +12759,7 @@
   }
   body[data-theme=dark] .sidebar-item.active .sidebar-link:hover,
   body[data-theme=dark] .sidebar-item.active>.sidebar-link {
-   background:linear-gradient(90deg,rgba(59,125,221,.1),rgba(59,125,221,.0875) 50%,transparent)
+   /* background:linear-gradient(90deg,rgba(59,125,221,.1),rgba(59,125,221,.0875) 50%,transparent) */
   }
   body[data-theme=light] .sidebar-item.active .sidebar-link:hover,
   body[data-theme=light] .sidebar-item.active>.sidebar-link {
@@ -13009,7 +13009,7 @@
    color:#e9ecef
   }
   body[data-theme=dark] .sidebar-cta-content {
-   background:#2b3947
+   /* background:#2b3947 */
   }
   body[data-theme=light] .sidebar-cta-content {
    background:#f2f4f6
@@ -13615,7 +13615,7 @@
   }
   .wrapper,
   body[data-theme=dark] .wrapper {
-   background:#222e3c
+   /* background:#222e3c */
   }
   body[data-theme=light] .wrapper {
    background:#fff
@@ -24604,7 +24604,7 @@
   }
   .simplebar-scrollbar:before,
   body[data-theme=dark] .simplebar-scrollbar:before {
-   background:#fff
+   /* background:#fff */
   }
   body[data-theme=light] .simplebar-scrollbar:before {
    background:#adb5bd

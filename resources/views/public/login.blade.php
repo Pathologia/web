@@ -3,7 +3,7 @@
 <div class="text-center mb-3">
     <img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
 </div>
-<form action="" method="POST">
+<form action="{{route('login.connect')}}" method="POST">
     @csrf
     <div class="mb-3">
         <input class="form-control form-control-lg @error('identifiant') is-invalid @enderror" type="text" name="identifiant" placeholder="Votre identifiant" />

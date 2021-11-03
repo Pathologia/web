@@ -4,7 +4,7 @@
     <img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
     <h4 class="mb-2 text-white">Réinitialiser mon mot de passe</h4>
 </div>
-<form action="" method="POST">
+<form action="{{route('password.reset')}}" method="POST">
     @csrf
     <div class="mb-3">
         <input class="form-control form-control-lg @error('identifiant') is-invalid @enderror" type="text" name="identifiant" placeholder="Votre identifiant" />

@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar js-sidebar text-white">
+<nav id="sidebar" class="sidebar js-sidebar text-white bg-dark">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand text-center" href="{{route('home.show')}}"><span>Patholog <strong>IA</strong></span></a>
         {{-- <div class="sidebar-user mt-5">
@@ -23,7 +23,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Menu</li>
             <li class="sidebar-item active">
-                <a class="sidebar-link text-dark" href="{{route('home.show')}}"><i class="align-middle text-dark" data-feather="sliders"></i> <span class="align-middle"> Accueil</span></a>
+                <a class="sidebar-link" href="{{route('home.show')}}"><i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Accueil</span></a>
             </li>
 
         </ul>

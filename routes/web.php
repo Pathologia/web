@@ -19,8 +19,13 @@ Route::middleware('guest')->group(function () {
     Route::get('/', [ConnexionController::class, 'redirectLogin'])->name('login.redirect');
     Route::prefix('/public')->group(function () {
         Route::get('/', [ConnexionController::class, 'show'])->name('login.show');
+        Route::post('/', [ConnexionController::class, 'login'])->name('login.connect');
+
         Route::get('/password', [ConnexionController::class, 'showPassword'])->name('password.show');
+        Route::post('/password', [ConnexionController::class, 'reset'])->name('password.reset');
+
         Route::get('/auth/home', [ConnexionController::class, 'showHome'])->name('home.show');
+
     });
 });
 

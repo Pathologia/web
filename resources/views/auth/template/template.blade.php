@@ -1,7 +1,6 @@
 @include('auth.template.header')
 <body>
-    {{-- <div class="bg-medical"></div> --}}
-	<div class="wrapper">
+	<div class="wrapper  bg-medical">
         @include('auth.template.navbar-left')
 		<div class="main" style="z-index: 2; background: transparent">
 			<nav class="navbar navbar-expand bg-radient-ehe">
