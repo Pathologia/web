@@ -1,16 +1,13 @@
 @include('public.template.header')
 <body>
-    <main class="d-flex w-100">
+    <main class="d-flex w-100 bg-medical">
 		<div class="container d-flex flex-column">
 			<div class="row vh-100">
-				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+				<div class="col-12 col-sm-12 col-md-10 col-lg-6 col-xl-5 col-xxl-4 mx-auto d-table h-100">
 					<div class="d-table-cell align-middle">
-						<div class="card">
+						<div class="card" style="background-color: #1A263D; border-radius: 25px !important;">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<div class="text-center">
-										<img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid" width="300" height="300" />
-									</div>
                                     @error('error')
                                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

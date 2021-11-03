@@ -10,7 +10,7 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="preconnect" href="https://pro.fontawesome.com">
-	<link rel="shortcut icon" href="{{asset('img/logo/icon.png')}}" />
+	<link rel="shortcut icon" href="{{asset('img/logo/cerveau.png')}}" />
 
 	<title>PathologIA</title>
 
