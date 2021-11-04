@@ -6,8 +6,7 @@
                     <h5 class="card-title">Nouvel utilisateur</h5>
                 </div>
             </div>
-            <form action="{{route('user.update')}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
+            <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-sm12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 row">

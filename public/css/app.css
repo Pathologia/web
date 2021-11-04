@@ -11367,3 +11367,8 @@ body {
 .radius {
   border-radius: 25px !important;
 }
+
+.radius-right {
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}

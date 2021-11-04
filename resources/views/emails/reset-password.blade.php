@@ -8,7 +8,7 @@
             <div class="col-sm-12 col-md-12 col-lg-12 text-center card">
                 <div class="card-body">
                     <div class="text-center">
-                        <img src="{{asset('images/logo/logo.png')}}" class="img-fluid rounded-circle text-center mb-2" width="132" height="132" />
+                        <img src="{{asset('images/logo/logo.png')}}" class="img-fluid rounded-circle text-center mb-2" width="200" height="200" />
                     </div>
                     <h1>Génération de votre nouveau mot de passe du compte PathologIA</h1>
                     <hr>

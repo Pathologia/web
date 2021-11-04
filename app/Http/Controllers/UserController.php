@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewAccountNotification;
 use App\Mail\ResetPasswordNotification;
 use App\Models\Role;
 use App\Models\User;
@@ -31,7 +32,24 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'prenom' => 'required',
+            'nom' => 'required',
+            'email' => 'required',
+        ]);
+        $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', 18), 17, 50);
+        $tmp = User::create([
+            'firstname'=>$request->prenom,
+            'lastname'=>$request->nom,
+            'email'=>$request->email,
+            'password'=>bcrypt($password),
+            'username'=>substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 19), 19, 6),
+            'role_id'=>1,
+        ])->id;
+        $user = User::where('id',$tmp)->first();
+        Log::info("Création utilisateur: ".$user->id);
+        Mail::to($user->email)->send(new NewAccountNotification($user, $password));
+        return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur créé avec succès']);
     }
 
     public function show()
@@ -79,7 +97,7 @@ class UserController extends Controller
         if($request_user->email === $request->email)
         {
             Log::notice("Mot de passe réinitialisé: ".$request->username);
-            $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_*+/&?!|', 3), 0, 50);
+            $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!|0123456789', 3), 0, 50);
             $request_user->update(['password'=>bcrypt($password)]);
             Mail::to($request_user->email)->send(new ResetPasswordNotification($request_user, $password));
             return redirect()->route('login')->withErrors(['success'=> 'Mot de passe envoyé par email.']);

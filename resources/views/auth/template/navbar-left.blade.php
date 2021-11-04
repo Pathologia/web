@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar js-sidebar text-white bg-medium" style="overflow-y: hidden; overflow-x: hidden;">
+<nav id="sidebar" class="sidebar js-sidebar text-white bg-medium radius-right" style="overflow-y: hidden; overflow-x: hidden;">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand text-center" href="{{route('home.show')}}"><span>Patholog <strong>IA</strong></span></a>
         <div class="sidebar-user">
