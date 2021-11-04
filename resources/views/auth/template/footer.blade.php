@@ -11,6 +11,7 @@
                     <li class="list-inline-item">
                         <a class="text-muted" href="" target="_blank">Documentation</a>
                     </li>
+                    <li class="list-inline-item">-</li>
                     <li class="list-inline-item">
                         <a class="text-muted" href="" target="_blank">PathologIA API</a>
                     </li>

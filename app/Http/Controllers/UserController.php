@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -57,5 +59,21 @@ class UserController extends Controller
     public function destroy()
     {
         //
+    }
+
+    public function reset(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'required',
+        ]);
+        $request_user = User::where('username', $request->username)->first();
+        if($request_user->email === $request->email)
+        {
+            //send email
+            return redirect()->route('login')->withErrors(['success'=> 'Mot de passe envoyé par email.']);
+        }
+        Log::notice("Tentative de reset password sur utilisateur: ".$request->username);
+        return redirect()->route('password.show')->withErrors(['error'=> 'Compte ou email introuvable.']);
     }
 }

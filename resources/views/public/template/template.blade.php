@@ -8,6 +8,9 @@
 						<div class="card" style="background-color: #1A263D; border-radius: 25px !important;">
 							<div class="card-body">
 								<div class="m-sm-4">
+                                    <div class="text-center mb-3">
+                                        <img src="{{asset('/images/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
+                                    </div>
                                     @error('error')
                                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

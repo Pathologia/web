@@ -30,7 +30,7 @@ body {
     z-index: 0;
 }
 .widget:hover{
-  background-color: rgba(250, 250, 250, 0.767);
+  background-color: rgba(250, 250, 250, 0.671);
   border-radius: 10px !important;
 }
 .widget{
@@ -51,4 +51,7 @@ body {
 }
 .bg-primary{
     background-color: $primary !important;
+}
+.btn{
+    border-radius: 20px !important;
 }

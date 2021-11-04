@@ -11312,7 +11312,7 @@ body {
 }
 
 .widget:hover {
-  background-color: rgba(250, 250, 250, 0.767);
+  background-color: rgba(250, 250, 250, 0.671);
   border-radius: 10px !important;
 }
 
@@ -11338,4 +11338,8 @@ body {
 
 .bg-primary {
   background-color: #1A263D !important;
+}
+
+.btn {
+  border-radius: 20px !important;
 }

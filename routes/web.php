@@ -24,7 +24,7 @@ Route::middleware('guest')->group(function () {
         Route::post('/', [ConnexionController::class, 'login'])->name('login.connect');
 
         Route::get('/password', [ViewController::class, 'showPassword'])->name('password.show');
-        Route::post('/password', [ConnexionController::class, 'reset'])->name('password.reset');
+        Route::post('/password', [UserController::class, 'reset'])->name('password.reset');
     });
 });
 
