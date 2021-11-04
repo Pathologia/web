@@ -11355,3 +11355,15 @@ body {
 .btn {
   border-radius: 20px !important;
 }
+
+#tablist > li > a {
+  border-radius: 25px !important;
+}
+
+.bg-grey {
+  background-color: #585858;
+}
+
+.radius {
+  border-radius: 25px !important;
+}

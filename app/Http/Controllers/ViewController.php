@@ -10,12 +10,12 @@ class ViewController extends Controller
 {
     public function show()
     {
-        return view('public.login');
+        return view('public.template.template');
     }
 
     public function showPassword()
     {
-        return view('public.password');
+        return view('public.template.template');
     }
 
     public function redirectLogin()
