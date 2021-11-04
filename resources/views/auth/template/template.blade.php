@@ -14,7 +14,6 @@
                         @error('error')
                             <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
                                 <div class="alert-message">
                                     {{$message}}
                                 </div>
