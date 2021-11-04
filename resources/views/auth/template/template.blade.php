@@ -32,6 +32,7 @@
                     @enderror
                     @yield('auth.widget.interface.show')
                     @yield('auth.user.profil.show')
+                    @yield('auth.admin.user.interface.show')
 
 				</div>
 			</main>

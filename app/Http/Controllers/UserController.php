@@ -21,7 +21,12 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        $user = Auth::user();
+        $users = User::all();
+        $roles = Role::all();
+        return view('auth.admin.user.interface', [
+            'user'=>$user,'roles'=>$roles, 'users'=>$users
+        ]);
     }
 
     public function store(Request $request)

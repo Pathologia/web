@@ -11,7 +11,7 @@
                                 {{-- @foreach ($user_groupes as $user_groupe)
                                 @if(!isset($widget->archived_at) && $widget->role_id === $user->role_id || ($widget->groupe_id === $user_groupe->groupe_id && $user_groupe->user_id === $user->id) && !isset($widget->archived_at)) --}}
                                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-2 col-xxl-2">
-                                    <a href="{{$widget->url_intern ?? $widget->url_extern}}" target="_blank" style="text-decoration:none">
+                                    <a href="{{$widget->url_intern ?? $widget->url_extern}}" style="text-decoration:none">
                                         <div class="card widget">
                                             <div class="card-body text-center">
                                                 <div class="row">

@@ -40,5 +40,9 @@ Route::middleware('auth')->group(function () {
             Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
         });
 
+        Route::prefix('/admin')->group(function () {
+            Route::get('/users', [UserController::class, 'create'])->name('user.create');
+        });
+
     });
 });
