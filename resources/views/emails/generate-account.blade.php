@@ -1,6 +1,6 @@
 @extends('emails.template')
 @section('emails.generate-account.show')
-    <title>Nouveau compte PathologIA</title>
+<title>Nouveau compte PathologIA</title>
 </head>
 <body>
     <main class="container">
@@ -22,7 +22,7 @@
                             <tbody>
                                 <tr>
                                     <th>Identifiant</th>
-                                    <td>{{$user->identifiant}}</td>
+                                    <td>{{$user->username}}</td>
                                 </tr>
                                 <tr>
                                     <th>Mot de passe (provisoir)</th>

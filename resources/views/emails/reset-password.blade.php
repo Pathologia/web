@@ -1,6 +1,6 @@
 @extends('emails.template')
 @section('emails.reset-password.show')
-    <title>Nouveau mot de passe | PathologIA</title>
+<title>Nouveau mot de passe | PathologIA</title>
 </head>
 <body>
     <main class="container">

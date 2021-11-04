@@ -37,16 +37,16 @@ class UserController extends Controller
             'nom' => 'required',
             'email' => 'required',
         ]);
-        $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', 18), 17, 50);
+        $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', 18), 0, 50);
         $tmp = User::create([
             'firstname'=>$request->prenom,
             'lastname'=>$request->nom,
             'email'=>$request->email,
             'password'=>bcrypt($password),
-            'username'=>substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 19), 19, 6),
+            'username'=>substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 19), 0, 6),
             'role_id'=>1,
         ])->id;
-        $user = User::where('id',$tmp)->first();
+        $user = User::find($tmp);
         Log::info("Création utilisateur: ".$user->id);
         Mail::to($user->email)->send(new NewAccountNotification($user, $password));
         return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur créé avec succès']);

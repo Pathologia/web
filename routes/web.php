@@ -47,3 +47,7 @@ Route::middleware('auth')->group(function () {
 
     });
 });
+
+Route::middleware('signed')->group(function(){
+    Route::get('public/verify/email/{email}/{id}', [UserController::class, 'emailVerify'])->name('signed.email.verify');
+});
