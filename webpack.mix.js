@@ -17,17 +17,3 @@ mix.js('resources/js/app.js', 'public/js')
     .copy('resources/css/light.css', 'public/css', true)
     .copy('resources/img', 'public/images', true)
     .sourceMaps();
-
-mix.webpackConfig( {
-    plugins: [
-        new ImageminPlugin( {
-//            disable: process.env.NODE_ENV !== 'production', // Disable during development
-            pngquant: {
-                quality: '95-100',
-            },
-            test: /\.(jpe?g|png|gif|svg)$/i,
-        } ),
-    ],
-} );
-
-mix.copy( 'resources/img', 'public/images', false );
