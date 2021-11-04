@@ -1,4 +1,4 @@
-<nav id="sidebar" class="sidebar js-sidebar text-white bg-medium">
+<nav id="sidebar" class="sidebar js-sidebar text-white bg-medium" style="overflow-y: hidden; overflow-x: hidden;">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand text-center" href="{{route('home.show')}}"><span>Patholog <strong>IA</strong></span></a>
         <div class="sidebar-user">
@@ -23,15 +23,11 @@
             <li class="sidebar-item @if(Route::is('user.show')) active @endif">
                 <a class="sidebar-link bg-transparent" href="{{route('user.show')}}"><i class="fas fa-users-cog"></i> <span class="align-middle"> Mon profil</span></a>
             </li>
+            <li class="sidebar-item"><br></li>
+            <li class="sidebar-header">Déconnexion</li>
+            <li class="sidebar-item">
+                <a class="dropdown-item btn text-danger" href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i> Me déconnecter</a>
+            </li>
         </ul>
-        <footer class="text-light bg-transparent mb-5">
-            <div class="container-fluid">
-                <div class="row text-muted">
-                    <div class="col-12 text-center">
-                        <a class="dropdown-item btn text-danger" href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i> Me déconnecter</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 </nav>
