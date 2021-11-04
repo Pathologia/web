@@ -19,7 +19,7 @@
                                                         <h5 class="card-title">{{$widget->libelle}}</h5>
                                                     </div>
                                                 </div>
-                                                <img src="{{asset('img/widgets/'.$widget->icon.'.png')}}" alt="{{$widget->libelle}}" class="text-center img-fluid rounded-circle mb-2" style="background-color: rgb({{$widget->rgba_color}}); width:60px !important; height:60px !important;">
+                                                <img src="{{asset('images/widgets/'.$widget->icon.'.png')}}" alt="{{$widget->libelle}}" class="text-center img-fluid rounded-circle mb-2" style="background-color: rgb({{$widget->rgba_color}}); width:60px !important; height:60px !important;">
                                             </div>
                                         </div>
                                     </a>

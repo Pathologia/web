@@ -1,7 +1,7 @@
 @extends('public.template.template')
 @section('public.login.show')
 <div class="text-center mb-3">
-    <img src="{{asset('img/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
+    <img src="{{asset('images/logo/logo.png')}}" alt="Logo PathologIA" class="img-fluid rounded-circle" width="300" height="300" />
     <h4 class="mb-2 text-white">Réinitialiser mon mot de passe</h4>
 </div>
 <form action="{{route('password.reset')}}" method="POST">

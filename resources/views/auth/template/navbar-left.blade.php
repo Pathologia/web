@@ -17,7 +17,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-header">Menu</li>
             <li class="sidebar-item @if(Route::is('home.show')) active @endif">
-                <a class="sidebar-link bg-transparent" href="{{route('home.show')}}"><i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Accueil</span></a>
+                <a class="sidebar-link bg-transparent" href="{{route('home.show')}}"><i class="fas fa-home"></i> <span class="align-middle"> Accueil</span></a>
             </li>
             <li class="sidebar-header">Compte</li>
             <li class="sidebar-item @if(Route::is('user.show')) active @endif">

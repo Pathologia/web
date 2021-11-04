@@ -1,6 +1,6 @@
 @include('auth.template.header')
 <body>
-	<div class="wrapper  bg-medical">
+	<div class="wrapper bg-medical">
         @include('auth.template.navbar-left')
 		<div class="main" style="z-index: 2; background: transparent">
 			<nav class="navbar navbar-expand bg-radient-ehe">
@@ -35,5 +35,6 @@
 		</div>
 	</div>
 </body>
-<script src="{{asset('js/app.js')}}"></script>
+<script src="{{ mix('/js/app.js') }}"></script>
+<script src="{{ mix('/js/app-export.js') }}"></script>
 </html>
