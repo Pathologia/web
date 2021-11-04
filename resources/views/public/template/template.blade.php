@@ -1,5 +1,9 @@
 @include('public.template.header')
 <body>
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="../videos/background-01.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas l'extension vidéo
+    </video>
     <main class="d-flex w-100 bg-medical">
 		<div class="container d-flex flex-column">
 			<div class="row vh-100">

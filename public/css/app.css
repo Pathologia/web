@@ -11286,6 +11286,19 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+video#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: no-repeat;
+  background-size: cover;
+}
+
 body {
   margin: 0;
   font-family: "Muli", sans-serif;
@@ -11301,7 +11314,6 @@ body {
 }
 
 .bg-medical {
-  background-image: url(/images/bg-medical-01.jpg?e9026d1f1efa14c5e831656103a9e08b);
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;

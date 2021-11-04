@@ -1,6 +1,10 @@
 @include('auth.template.header')
 <body>
-	<div class="wrapper bg-medical">
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="../videos/background-01.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas l'extension vidéo
+    </video>
+	<div class="wrapper">
         @include('auth.template.navbar-left')
 		<div class="main" style="z-index: 2; background: transparent">
 			<nav class="navbar navbar-expand bg-radient-ehe">

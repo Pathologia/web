@@ -88,7 +88,7 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         if($request->password1 === $request->password2 && Hash::check($request->password0, $user->password))
         {
-            $user->update(['password'=>$request->password1]);
+            $user->update(['password'=>bcrypt($request->password1)]);
             return redirect()->route('user.show')->withErrors(['success'=> 'Mot de passe enregistré.']);
         }
         return redirect()->route('user.show')->withErrors(['error'=> 'Les 2 mots de passe ne correspondent pas.']);
