@@ -2,7 +2,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2">
+            <div class="col-auto col-md-3 col-xl-2 p-0">
                 @include('auth.template.navbar-left')
             </div>
             <div class="col">
@@ -39,5 +39,5 @@
 </body>
 <script src="{{ mix('/js/app.js') }}"></script>
 <script src="{{ mix('/js/app-export.js') }}"></script>
-@include('auth.template.footer')
+<!-- @include('auth.template.footer') -->
 </html>
