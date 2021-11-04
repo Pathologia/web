@@ -6,6 +6,7 @@
             <div class="list-group list-group-flush" role="tablist">
                 <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account" role="tab">Mon compte</a>
                 <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#data" role="tab">Mes données</a>
+                <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password" role="tab">Mot de passe</a>
             </div>
         </div>
     </div>
@@ -13,6 +14,7 @@
         <div class="tab-content">
             @include('auth.user.compte')
             @include('auth.user.donnees')
+            @include('auth.user.password')
         </div>
     </div>
 @endsection

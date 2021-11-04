@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Pathologia Corp">
 	<meta name="keywords" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="preconnect" href="https://pro.fontawesome.com">

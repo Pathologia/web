@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/user')->group(function () {
             Route::get('/me', [UserController::class, 'show'])->name('user.show');
             Route::put('/me', [UserController::class, 'update'])->name('user.update');
+            Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
         });
 
     });

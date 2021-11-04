@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ResetPasswordNotification;
 use App\Models\Role;
 use App\Models\User;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -70,10 +73,24 @@ class UserController extends Controller
         $request_user = User::where('username', $request->username)->first();
         if($request_user->email === $request->email)
         {
-            //send email
+            Log::notice("Mot de passe réinitialisé: ".$request->username);
+            $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_*+/&?!|', 3), 0, 50);
+            $request_user->update(['password'=>bcrypt($password)]);
+            Mail::to($request_user->email)->send(new ResetPasswordNotification($request_user, $password));
             return redirect()->route('login')->withErrors(['success'=> 'Mot de passe envoyé par email.']);
         }
         Log::notice("Tentative de reset password sur utilisateur: ".$request->username);
         return redirect()->route('password.show')->withErrors(['error'=> 'Compte ou email introuvable.']);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        if($request->password1 === $request->password2 && Hash::check($request->password0, $user->password))
+        {
+            $user->update(['password'=>$request->password1]);
+            return redirect()->route('user.show')->withErrors(['success'=> 'Mot de passe enregistré.']);
+        }
+        return redirect()->route('user.show')->withErrors(['error'=> 'Les 2 mots de passe ne correspondent pas.']);
     }
 }
