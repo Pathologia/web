@@ -20,7 +20,7 @@
         </span>
     </label>
     </div>
-    <div class="text-center mt-3">
+    <div class="text-center mt-2">
         <button type="submit" class="btn btn-lg btn-warning">Se connecter</button>
     </div>
 </form>
