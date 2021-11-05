@@ -3,9 +3,7 @@
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="sidebar-toggle js-sidebar-toggle mt-5">
-                        <i class="fas fa-bars fa-2x"></i>
-                    </a>
+                    <a href="#menu-toggle" class="mt-5" id="menu-toggle"><i class="fas fa-bars fa-2x"></i></a>
                 </li>
             </ul>
             <a class="d-flex nav-icon js-fullscreen" href="#">
