@@ -13630,6 +13630,8 @@ body {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .bg-medium {
@@ -13739,7 +13741,6 @@ body {
   margin-right: -250px;
 }
 
-/* Sidebar Styles */
 .sidebar-nav {
   position: absolute;
   top: 0;
