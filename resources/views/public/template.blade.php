@@ -16,10 +16,10 @@
                                         <div class="tab">
                                             <ul class="nav nav-tabs bg-grey radius" role="tablist">
                                                 <li class="nav-item col-6 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
-                                                    <a class="nav-link text-center radius active" href="#connexion" data-bs-toggle="tab" role="tab">Connexion</a>
+                                                    <a class="nav-link text-center radius active" href="#tab_connexion" data-bs-toggle="tab" role="tab">Connexion</a>
                                                 </li>
                                                 <li class="nav-item col-6 col-sm-6 col-lg-6 col-xl-6 col-xxl-6">
-                                                    <a class="nav-link text-center radius" href="#password" data-bs-toggle="tab" role="tab">Mot de passe</a>
+                                                    <a class="nav-link text-center radius" href="#tab_password" data-bs-toggle="tab" role="tab">Mot de passe</a>
                                                 </li>
                                             </ul>
                                             <div class="text-center mb-3">
@@ -44,10 +44,10 @@
                                             </div>
                                             @enderror
                                             <div class="tab-content bg-transparent">
-                                                <div class="tab-pane active" id="connexion" role="tabpanel">
+                                                <div class="tab-pane active" id="tab_connexion" role="tabpanel">
                                                     @include('public.login')
                                                 </div>
-                                                <div class="tab-pane" id="password" role="tabpanel">
+                                                <div class="tab-pane" id="tab_password" role="tabpanel">
                                                     @include('public.password')
                                                 </div>
                                             </div>
