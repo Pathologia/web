@@ -11,62 +11,14 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 video#bgvid {
-    position: fixed; right: 0; bottom: 0;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto; z-index: -100;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
     background: no-repeat;
     background-size: cover;
-}
-
-body {
-
-}
-.bg-medium {
-    background-color: rgba(51, 51, 51, 0.712);
-}
-.widget:hover{
-  background-color: rgba(250, 250, 250, 0.671);
-  border-radius: 10px;
-}
-.widget{
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-}
-.list-group-item.active {
-    z-index: 2;
-    background-color: $primary;
-    border-color: $primary;
-  }
-.btn-primary {
-    background-color: $primary;
-    color: $white;
-}
-.text-primary{
-    color: $primary;
-}
-.bg-primary{
-    background-color: $primary;
-}
-.btn{
-    border-radius: 20px;
-}
-.btn:hover{
-    background-color: $white;
-    color:$primary;
-    border: none transparent;
-}
-#tablist>li>a{
-    border-radius: 25px;
-}
-.bg-grey{
-    background-color: $grey;
-}
-.radius{
-    border-radius: 25px !important;
-    border: none;
-}
-.radius-right {
-    border-bottom-right-radius: 25px;
-    border-top-right-radius: 25px;
-    border: none;
 }
