@@ -4,7 +4,6 @@
         <div class="row">
             <div id="page-content-wrapper" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 @include('template.navbar-left')
-
                 @include('template.navbar-top')
                 @error('error')
                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
@@ -23,13 +22,13 @@
                         </div>
                     </div>
                 @enderror
-                @yield('auth.widget.interface.show')
                 @yield('auth.user.profil.show')
                 @yield('auth.admin.user.interface.show')
+                @yield('auth.menu.show')
             </div>
         </div>
     </div>
-    @include('template.footer')
+    {{-- @include('template.footer') --}}
 </body>
 <script>
     $("#menu-toggle").click(function(e) {

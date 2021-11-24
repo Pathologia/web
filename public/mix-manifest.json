@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/videos/background-01.mp4": "/videos/background-01.mp4",
-    "/docs/erd.html": "/docs/erd.html",
-    "/css/app.css": "/css/app.css"
+    "/docs/erd.html": "/docs/erd.html"
 }

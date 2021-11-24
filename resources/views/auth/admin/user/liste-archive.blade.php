@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col mt-0">
-                    <h5 class="card-title">Liste des utilisateurs actifs</h5>
+                    <h5 class="card-title">Liste des utilisateurs archivés</h5>
                 </div>
             </div>
             <table class="table table-striped table-responsive table-responsive-sm table-responsive-md table-responsive-lg">

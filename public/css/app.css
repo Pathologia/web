@@ -17439,22 +17439,6 @@ body {
   background-color: rgba(51, 51, 51, 0.712);
 }
 
-.bg-body {
-  background-image: url(/images/bg-grey01.jpg?8590d1c7dc8ce07c4db5a319a4c421ac);
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: center;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  background: no-repeat;
-}
-
 .widget:hover {
   background-color: rgba(250, 250, 250, 0.671);
   border-radius: 10px;

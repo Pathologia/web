@@ -28,7 +28,7 @@ class ViewController extends Controller
         $user = Auth::user();
         $widgets = Widget::all();
         $roles = Role::all();
-        return view('auth.widget.interface', [
+        return view('auth.menu', [
             'user'=>$user, 'widgets'=>$widgets, 'roles'=>$roles
         ]);
     }
