@@ -1,5 +1,5 @@
 @include('template.header')
-<body class="bg-secondary">
+<body>
     <div class="container-fluid toggled" id="wrapper">
         <div class="row">
             <div id="page-content-wrapper" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">

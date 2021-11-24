@@ -1,5 +1,5 @@
 @include('template.header')
-<body>
+<body class="overflow-hidden">
     <video playsinline autoplay muted loop id="bgvid">
         <source src="../videos/background-01.mp4" type="video/mp4">
             Votre navigateur ne supporte pas l'extension vidéo
