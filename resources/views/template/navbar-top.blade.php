@@ -7,14 +7,8 @@
         </div>
     </form>
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-1x text-white"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li class="text-center"><a class="dropdown-item radius" href="{{route('user.show')}}">{{$user->firstname}} {{$user->lastname}}</a></li>
-                <li><hr class="dropdown-divider radius"></li>
-                <li><a class="dropdown-item radius" href=""><i class="fas fa-cogs"></i> Paramètres</a></li>
-                <li><a class="dropdown-item radius text-danger" href="{{route('user.logout')}}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
-            </ul>
-        </li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{route('user.show')}}"><i class="fas fa-user fa-2x"></i></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href=""><i class="fas fa-cogs fa-2x"></i></a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="{{route('user.logout')}}"><i class="fas fa-power-off fa-2x"></i></a></li>
     </ul>
 </nav>

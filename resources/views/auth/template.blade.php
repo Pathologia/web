@@ -1,8 +1,8 @@
 @include('template.header')
 <body class="bg-secondary">
-    <div class="container-fluid toggled" id="wrapper">
+    <div class="container-fluid">
         <div class="row">
-            <div id="page-content-wrapper" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="col-12">
                 @include('template.navbar-left')
                 @include('template.navbar-top')
                 @error('error')
@@ -22,18 +22,12 @@
                         </div>
                     </div>
                 @enderror
+                @yield('auth.menu.show')
                 @yield('auth.user.profil.show')
                 @yield('auth.admin.user.interface.show')
-                @yield('auth.menu.show')
             </div>
         </div>
     </div>
-    {{-- @include('template.footer') --}}
+    @include('template.footer')
 </body>
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
 </html>
