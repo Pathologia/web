@@ -1,4 +1,4 @@
-@extends('auth.template.template')
+@extends('auth.template')
 @section('auth.admin.user.interface.show')
 <div class="row">
     <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2 col-xxl-2">

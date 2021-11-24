@@ -1,4 +1,4 @@
-@include('public.template.header')
+@include('template.header')
 <body>
     <video playsinline autoplay muted loop id="bgvid">
         <source src="../videos/background-01.mp4" type="video/mp4">
@@ -62,5 +62,4 @@
 		</div>
 	</main>
 </body>
-<script src="{{ mix('/js/app.js') }}"></script>
 </html>

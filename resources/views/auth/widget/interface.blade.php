@@ -1,4 +1,4 @@
-@extends('auth.template.template')
+@extends('auth.template')
 @section('auth.widget.interface.show')
 <div class="container-fluid">
     <div class="row mb-2 mb-xl-3">

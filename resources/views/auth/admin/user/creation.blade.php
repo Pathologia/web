@@ -12,21 +12,21 @@
                     <div class="col-12 col-sm12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 row">
                         <div class="mb-3 col-md-6">
                             <label class="form-label" for="prenom">Prénom</label>
-                            <input type="text" class="form-control @error('prenom') is-invalid @enderror" id="prenom" name="prenom" placeholder="Votre prénom" value="{{$user->firstname ?? old('prenom')}}" required>
+                            <input type="text" class="form-control @error('prenom') is-invalid @enderror" id="prenom" name="prenom" placeholder="Votre prénom" value="{{old('prenom')}}" required>
                             @error('prenom')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label" for="nom">Nom</label>
-                            <input type="text" class="form-control @error('nom') is-invalid @enderror" id="nom" name="nom" placeholder="Votre nom" value="{{$user->lastname ?? old('nom')}}" required>
+                            <input type="text" class="form-control @error('nom') is-invalid @enderror" id="nom" name="nom" placeholder="Votre nom" value="{{old('nom')}}" required>
                             @error('nom')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3 col-md-12">
                             <label class="form-label" for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" value="{{$user->email ?? old('email')}}" placeholder="Votre adresse email" required>
+                            <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" placeholder="Votre adresse email" required>
                             @error('email')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror

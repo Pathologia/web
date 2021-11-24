@@ -12,8 +12,8 @@ let ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
  */
 
 mix.js('resources/js/app.js', 'public/js')
-.babel('resources/js/app-export.js', 'public/js/app-export.js')
     .sass('resources/sass/app.scss', 'public/css')
     .copy('resources/img', 'public/images', true)
     .copy('resources/video', 'public/videos', true)
+    .copy('docs/erd/index.html', 'public/docs/erd.html', true)
     .sourceMaps();

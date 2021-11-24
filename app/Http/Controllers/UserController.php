@@ -20,6 +20,39 @@ class UserController extends Controller
         //
     }
 
+    /**
+     * @OA\Get(
+     *      path="/auth/admin/users",
+     *      operationId="create",
+     *      tags={"Admin/Utilisateur"},
+
+     *      summary="Affichage admin utilisateurs",
+     *      description="Affiche le panneau d'administration des utilisateurs",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function create()
     {
         $user = Auth::user();
@@ -30,6 +63,39 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/auth/admin/users",
+     *      operationId="store",
+     *      tags={"Admin/Utilisateur"},
+
+     *      summary="Création utilisateur",
+     *      description="Créé un nouvel utilisateur",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -52,6 +118,39 @@ class UserController extends Controller
         return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur créé avec succès']);
     }
 
+        /**
+     * @OA\Get(
+     *      path="/auth/user/me",
+     *      operationId="show",
+     *      tags={"Utilisateurs"},
+
+     *      summary="Affiche l'utilisateur",
+     *      description="Affiche le profil de l'utilisateur connecté",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function show()
     {
         $user = Auth::user();
@@ -66,6 +165,39 @@ class UserController extends Controller
         //
     }
 
+        /**
+     * @OA\Put(
+     *      path="/auth/user/me",
+     *      operationId="update",
+     *      tags={"Utilisateurs"},
+
+     *      summary="Mise à jour du profil",
+     *      description="Mise à jour du profil de l'utilisateur connecté",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -87,6 +219,39 @@ class UserController extends Controller
         //
     }
 
+            /**
+     * @OA\Post(
+     *      path="/public/password",
+     *      operationId="reset",
+     *      tags={"Utilisateurs"},
+
+     *      summary="Réinitialisation password",
+     *      description="Réinitialisation du mot de passe utilisateur",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function reset(Request $request)
     {
         $this->validate($request, [
@@ -106,6 +271,39 @@ class UserController extends Controller
         return redirect()->route('password.show')->withErrors(['error'=> 'Compte ou email introuvable.']);
     }
 
+           /**
+     * @OA\Put(
+     *      path="/auth/user/me/password",
+     *      operationId="updatePassword",
+     *      tags={"Utilisateurs"},
+
+     *      summary="Update password",
+     *      description="Mise à jour du mot de passe utilisateur",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     * @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *  )
+     */
     public function updatePassword(Request $request)
     {
         $user = User::find(Auth::user()->id);

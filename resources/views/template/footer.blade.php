@@ -10,11 +10,11 @@
             <div class="col-3 col-sm-4 col-md-4 col-lg-5 col-xl-5 col-xxl-5 text-end">
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a class="text-muted" href="" target="_blank">Documentation</a>
+                        <a class="text-muted" href="/docs/erd.html" target="_blank">Documentation</a>
                     </li>
                     <li class="list-inline-item">-</li>
                     <li class="list-inline-item">
-                        <a class="text-muted" href="" target="_blank">PathologIA API</a>
+                        <a class="text-muted" href="/docs/api" target="_blank">PathologIA API</a>
                     </li>
                 </ul>
             </div>
