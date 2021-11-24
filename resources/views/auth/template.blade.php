@@ -1,15 +1,10 @@
 @include('template.header')
-<body>
-    <video playsinline autoplay muted loop id="bgvid">
-        <source src="../../videos/background-01.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas l'extension vidéo
-    </video>
+<body class="bg-secondary">
     <div class="container-fluid toggled" id="wrapper">
         <div class="row">
-            <div id="sidebar-wrapper" class="col-6 col-sm-5 col-md-4 col-lg-3 col-xl-3 col-xxl-2 p-0">
+            <div id="page-content-wrapper" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 @include('template.navbar-left')
-            </div>
-            <div id="page-content-wrapper" class="col-6 col-sm-7 col-md-8 col-lg-9 col-xl-9 col-xxl-10">
+
                 @include('template.navbar-top')
                 @error('error')
                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">

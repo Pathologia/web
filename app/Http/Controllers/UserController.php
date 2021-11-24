@@ -201,14 +201,10 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'prenom' => 'required',
-            'nom' => 'required',
             'email' => 'required',
         ]);
         $user = User::find(Auth::user()->id);
         $user->update([
-            'firstname'=>$request->prenom,
-            'lastname'=>$request->nom,
             'email'=>$request->email,
         ]);
         return redirect()->route('user.show')->withErrors(['success' => 'Vos informations de compte ont bien été enregistrées']);

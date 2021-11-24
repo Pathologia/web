@@ -17439,14 +17439,20 @@ body {
   background-color: rgba(51, 51, 51, 0.712);
 }
 
-.bg-medical {
+.bg-body {
+  background-image: url(/images/bg-grey01.jpg?8590d1c7dc8ce07c4db5a319a4c421ac);
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  width: 100%;
-  height: 100%;
   position: fixed;
-  z-index: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: no-repeat;
 }
 
 .widget:hover {
