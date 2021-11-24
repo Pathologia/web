@@ -1,10 +1,12 @@
 @include('template.header')
-<body class="bg-secondary">
+<body>
+    <div class="container-full mb-4">
+        @include('template.navbar-left')
+        @include('template.navbar-top')
+    </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                @include('template.navbar-left')
-                @include('template.navbar-top')
+            <div class="col-xxl-10 offset-xxl-1 col-xl-12">
                 @error('error')
                     <div class="alert alert-danger alert-outline alert-dismissible" role="alert">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

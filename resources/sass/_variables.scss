@@ -1,7 +1,7 @@
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
 
 // Colors
 $blue: #1A263D;
@@ -15,12 +15,18 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $primary: #1A263D;
-$secondary: $yellow;
-$white: #FFFFFF;
-$grey: #ededed;
+$secondary: #f0c104;
+$white: #ffffff;
+$grey: #efefef;
 
 // Body
 $body-bg: $grey;
-
-
 $border-radius:               10px;
+
+// Menu
+$offcanvas-horizontal-width:        300px;
+$offcanvas-vertical-height:         30vh;
+$offcanvas-transition-duration:     .2s;
+$offcanvas-border-color:            null;
+
+$spacer: 1rem;

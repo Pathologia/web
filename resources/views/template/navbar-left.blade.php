@@ -4,7 +4,7 @@
       <h5 class="offcanvas-title">PathologIA</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <hr>
+    <hr class="mt-0">
     <div class="offcanvas-body row">
         <div class="col-lg-12">
             <div class="position-sticky pt-3">
