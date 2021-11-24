@@ -1,13 +1,15 @@
 <form action="{{route('login.connect')}}" method="POST">
     @csrf
-    <div class="mb-3">
-        <input class="form-control form-control-lg @error('username') is-invalid @enderror" type="text" name="username" placeholder="Votre identifiant" />
+    <div class="mb-3 form-floating">
+        <input class="form-control form-control-lg @error('username') is-invalid @enderror" type="text" name="username" id="username" placeholder="Votre identifiant" />
+        <label for="username">Identifiant</label>
     </div>
     @error('username')
         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
     @enderror
-    <div class="mb-3">
-        <input class="form-control form-control-lg @error('password') is-invalid @enderror" type="password" name="password" placeholder="Votre mot de passe" />
+    <div class="mb-3 form-floating">
+        <input class="form-control form-control-lg @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="Votre mot de passe" />
+        <label for="password">Mot de passe</label>
     </div>
     @error('password')
         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>

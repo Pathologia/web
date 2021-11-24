@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
    <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
       <meta name="description" content="Interactive entity-relationship diagram or data model diagram implemented by GoJS in JavaScript for HTML."/>
-
-      <link rel="shortcut icon" href="/images/logo/cerveau.png" />
-
-
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.6/tailwind.min.css"/>
+      <link rel="shortcut icon" href="/images/logo/cerveau.png" />
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.46/go.js"></script>
@@ -18,6 +15,7 @@
    <body class="bg-gray-100 tracking-wide bg-gray-200">
         <nav class="bg-white py-2 ">
             <div class="container px-4 mx-auto md:flex md:items-center">
+                <img src="/images/logo/cerveau.png" alt="Logo PathologIA" width="3%" style="background-color: grey;border-radius: 25px;">
                 <div class="flex justify-between items-center">
                     <a href="erd.html" class="font-bold text-xl text-indigo-600">PathologIA ERD</a>
                 </div>
@@ -25,15 +23,15 @@
         </nav>
         <div id="app" v-cloak class="w-full flex lg:pt-10">
             <aside class="text-xl text-grey-darkest break-all bg-gray-200 pl-2 h-screen sticky top-1 overflow-auto">
-                <b class="text-sm">Filter by Relation Type</b>
+                <b class="text-sm">Filtrer par type de relation</b>
                 <div class="text-sm">
-                    <input type="checkbox" class="text-sm" id="input-relation-type-checkbox-check-all"> check all
+                    <input type="checkbox" class="text-sm" id="input-relation-type-checkbox-check-all"> Tout sélectionner
                 </div>
 
                 <div id="filter-by-relation-type"></div>
-                <b class="text-sm">Filter by Table Name</b>
+                <b class="text-sm">Filtrer par nom</b>
                 <div class="text-sm">
-                    <input type="checkbox" id="input-table-names-checkbox-check-all"> check all
+                    <input type="checkbox" id="input-table-names-checkbox-check-all"> Tout sélectionner
                 </div>
                 <div id="filter-by-table-name"></div>
             </aside>

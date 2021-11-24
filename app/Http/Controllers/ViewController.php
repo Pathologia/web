@@ -10,7 +10,7 @@ class ViewController extends Controller
 {
     public function show()
     {
-        return view('public.template.template');
+        return view('public.template');
     }
 
     public function showPassword()
