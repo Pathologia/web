@@ -8,7 +8,7 @@
     </form>
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item"><a class="nav-link text-danger" href="{{route('user.logout')}}"><i class="fas fa-power-off fa-1x"></i></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href=""><i class="fas fa-cogs fa-1x"></i></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="{{route('user.show')}}"><i class="fas fa-user fa-1x"></i></a></li>
+        <!-- <li class="nav-item"><a class="nav-link text-white" href=""><i class="fas fa-cogs fa-1x"></i></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{route('user.show')}}"><i class="fas fa-user fa-1x"></i></a></li> -->
     </ul>
 </nav>
