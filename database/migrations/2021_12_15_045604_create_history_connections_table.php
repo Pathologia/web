@@ -18,7 +18,7 @@ class CreateHistoryConnectionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->ipAddress('ip_address');
             $table->text('session_name');
-            $table->text('uer_agent');
+            $table->text('user_agent');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

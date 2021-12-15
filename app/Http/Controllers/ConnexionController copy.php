@@ -56,6 +56,7 @@ class ConnexionController extends Controller
         } else {
             $request->remember = false;
         }
+
         if (Auth::attempt($crendentials, $request->remember)) {
             Log::info("Connexion de l'utilisateur " . Auth::user()->id . " le " . Carbon::now());
             $user = User::find(Auth::user()->id);
@@ -64,9 +65,8 @@ class ConnexionController extends Controller
 
             HistoryConnection::create([
                 'user_id'=>$user->id,
-                'user_agent'=>$request->server('HTTP_USER_AGENT'),
-                'ip_address'=>$request->ip(),
-                'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+                'user_agent'=>$request,
+
             ]);
 
             return redirect()->route('home.show');

@@ -27,6 +27,17 @@
                       Reports
                     </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('historyconnection.show')}}">
+                        <i class="fas fa-chart-line"></i> Historique des connexions
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('historyactivity.show')}}">
+                        <i class="fas fa-chart-line"></i> Historique des activités
+                    </a>
+                  </li>
                 </ul>
               </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HistoryConnection;
 use App\Http\Requests\StoreHistoryConnectionRequest;
 use App\Http\Requests\UpdateHistoryConnectionRequest;
+use App\Models\User;
 
 class HistoryConnectionController extends Controller
 {
@@ -45,9 +46,11 @@ class HistoryConnectionController extends Controller
      * @param  \App\Models\HistoryConnection  $historyConnection
      * @return \Illuminate\Http\Response
      */
-    public function show(HistoryConnection $historyConnection)
+    public function show()
     {
-        //
+        $ent_users = User::all();
+        $connections = HistoryConnection::all();
+        return view('auth.admin.connection.interface', ['connections'=>$connections,'ent_users'=>$ent_users]);
     }
 
     /**

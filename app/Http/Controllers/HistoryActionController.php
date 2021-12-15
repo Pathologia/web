@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HistoryAction;
 use App\Http\Requests\StoreHistoryActionRequest;
 use App\Http\Requests\UpdateHistoryActionRequest;
+use App\Models\User;
 
 class HistoryActionController extends Controller
 {
@@ -45,9 +46,11 @@ class HistoryActionController extends Controller
      * @param  \App\Models\HistoryAction  $historyAction
      * @return \Illuminate\Http\Response
      */
-    public function show(HistoryAction $historyAction)
+    public function show()
     {
-        //
+        $ent_users = User::all();
+        $activities = HistoryAction::all();
+        return view('auth.admin.activity.interface', ['activities'=>$activities,'ent_users'=>$ent_users]);
     }
 
     /**

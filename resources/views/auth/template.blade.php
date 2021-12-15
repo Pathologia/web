@@ -27,6 +27,9 @@
                 @yield('auth.menu.show')
                 @yield('auth.user.profil.show')
                 @yield('auth.admin.user.interface.show')
+                @yield('auth.admin.connection.interface.show')
+                @yield('auth.admin.activity.interface.show')
+
             </div>
         </div>
     </div>
