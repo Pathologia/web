@@ -144,7 +144,41 @@ class PatientController extends Controller
         ->orWhere('address_id','like', '%'.$request->search.'%')
         ->orWhere('doc_id','like', '%'.$request->search.'%')
         ->get();
-        dd($patients);
-        return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
+        return view('auth.patient.liste', ["patients"=>$patients]);
+    }
+
+    public function process(Request $request)
+    {
+        $crendentials = $this->validate($request, [
+            'patient_id' => 'required',
+            'type_formulaire' => 'required',
+        ]);
+        $type_formulaire = $request->type_formulaire;
+        $patient = Patient::find($request->patient_id);
+        if($request->type_formulaire === 0)
+        {
+            $crendentials = $this->validate($request, [
+                'MIMAT0005898' => 'required',
+                'MIMAT0005951' => 'required',
+                'MIMAT0019691' => 'required',
+                'MIMAT0027623' => 'required',
+                'MIMAT0027650' => 'required',
+            ]);
+            $MIMAT = [
+                'MIMAT0005898'=>$request->MIMAT0005898,
+                'MIMAT0005951'=>$request->MIMAT0005951,
+                'MIMAT0019691'=>$request->MIMAT0019691,
+                'MIMAT0027623'=>$request->MIMAT0027623,
+                'MIMAT0027650'=>$request->MIMAT0027650,
+            ];
+            return response([$type_formulaire, $patient, $MIMAT],200);
+        }
+        elseif($request->type_formulaire === 1)
+        {
+            $crendentials = $this->validate($request, [
+                'imagerie' => 'required',
+            ]);
+            return response([$type_formulaire, $patient, base64_encode($request->file('imagerie')->get())],200);
+        }
     }
 }

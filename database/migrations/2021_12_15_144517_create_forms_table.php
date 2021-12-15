@@ -16,6 +16,7 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('patient_id');
             $table->text('firstname');
             $table->text('lastname');
             $table->text('email');
@@ -24,6 +25,7 @@ class CreateFormsTable extends Migration
             $table->text('message');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('patient_id')->references('id')->on('patients');
         });
     }
 

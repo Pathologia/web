@@ -15,13 +15,17 @@
         <hr>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdatePatientModal_{{$patient->id}}">Modifier la fiche patient</button>
         <br><br>
-        <form action="{{route('patients.edit')}}" method="post">
-            @csrf
-            @method('put')
-            <input type="hidden" name="patient_id" value="{{$patient->id}}">
-            <button class="btn btn-warning">Rappatrier ce patient</button>
-        </form>
-        <br>
+        @if ($patient->doc_id != Auth::user()->id)
+            <form action="{{route('patients.edit')}}" method="post">
+                @csrf
+                @method('put')
+                <input type="hidden" name="patient_id" value="{{$patient->id}}">
+                <button class="btn btn-warning">Rappatrier ce patient</button>
+            </form>
+            <br>
+        @endif
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#NewFormulaireModal">Demander une analyse</button>
+        <br><br>
         <form action="{{route('patients.destroy')}}" method="post">
             @csrf
             @method('delete')
@@ -42,4 +46,5 @@
     </div>
 </div>
 @include('modals.update_patient')
+@include('modals.new_formulaire')
 @endsection

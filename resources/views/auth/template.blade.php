@@ -33,6 +33,7 @@
                 @yield('auth.admin.resultat.interface.show')
                 @yield('auth.patient.interface.show')
                 @yield('auth.patient.information.show')
+                @yield('auth.patient.liste.show')
 
             </div>
         </div>

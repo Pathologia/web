@@ -24,7 +24,7 @@
                                 <td>{{$ent_user->firstname}}</td>
                                 <td>{{$ent_user->lastname}}</td>
                                 <td><a href="mailto:{{$ent_user->email}}">{{$ent_user->email}}</a></td>
-                                <td>{{Carbon\Carbon::parse($ent_user->created_at)->format("d-m-Y H:i:s")}}</td>
+                                <td>{{Carbon\Carbon::parse($ent_user->created_at)->format("d/m/Y")}}</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">

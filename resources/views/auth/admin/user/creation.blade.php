@@ -31,6 +31,17 @@
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="mb-3 col-md-12">
+                            <label class="form-label" for="role_id">Rôle</label>
+                            <select class="form-select">
+                                @foreach($roles as $role)
+                                    <option value="{{$role->id}}">{{$role->libelle}}</option>
+                                @endforeach
+                            </select>
+                            @error('role_id')
+                                <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Créer le nouvel utilisateur</button>
                 </div>

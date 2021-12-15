@@ -102,6 +102,7 @@ class UserController extends Controller
             'prenom' => 'required',
             'nom' => 'required',
             'email' => 'required',
+            'role_id' => 'required',
         ]);
         $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', 18), 0, 50);
         $tmp = User::create([
@@ -110,7 +111,7 @@ class UserController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($password),
             'username'=>substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 19), 0, 6),
-            'role_id'=>1,
+            'role_id'=>$request->role_id,
         ])->id;
         $user = User::find($tmp);
         Log::info("Création utilisateur: ".$user->id);

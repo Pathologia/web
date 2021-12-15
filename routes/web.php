@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/patients/rappartier', [PatientController::class, 'edit'])->name('patients.edit');
         Route::delete('/patients', [PatientController::class, 'destroy'])->name('patients.destroy');
         Route::post('/patients/search', [PatientController::class, 'search'])->name('patients.search');
+        Route::post('/patients/process', [PatientController::class, 'process'])->name('patients.process');
 
         Route::prefix('/user')->group(function () {
             Route::get('/me', [UserController::class, 'show'])->name('user.show');
