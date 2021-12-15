@@ -78,9 +78,15 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'patient_id' => 'required',
+        ]);
+        Patient::find($request->patient_id)->update([
+            'doc_id'=>Auth::user()->id,
+        ]);
+        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient rappatrié avec succès']);
     }
 
     /**
@@ -90,9 +96,26 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePatientRequest $request, Patient $patient)
+    public function update(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'patient_id' => 'required',
+            'sex' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'age' => 'required',
+            'email' => 'required',
+            'address_id' => 'required',
+        ]);
+        Patient::find($request->patient_id)->update([
+            'sex'=>$request->sex,
+            'firstname'=>$request->firstname,
+            'lastname'=>$request->lastname,
+            'age'=>Carbon::parse($request->age),
+            'email'=>$request->email,
+            'address_id'=>$request->address_id,
+        ]);
+        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient modifié avec succès']);
     }
 
     /**
@@ -101,8 +124,12 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'patient_id' => 'required',
+        ]);
+        Patient::find($request->patient_id)->delete();
+        return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
     }
 }

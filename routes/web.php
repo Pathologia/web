@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/patients', [PatientController::class, 'show'])->name('patients.show');
         Route::post('/patients', [PatientController::class, 'create'])->name('patients.create');
         Route::get('/patients/{id}', [PatientController::class, 'index'])->name('patients.index');
+        Route::put('/patients', [PatientController::class, 'update'])->name('patients.update');
+        Route::put('/patients/rappartier', [PatientController::class, 'edit'])->name('patients.edit');
+        Route::delete('/patients', [PatientController::class, 'destroy'])->name('patients.destroy');
 
         Route::prefix('/user')->group(function () {
             Route::get('/me', [UserController::class, 'show'])->name('user.show');
