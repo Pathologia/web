@@ -27,10 +27,16 @@
                             <td>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-warning border-radius"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-warning border-radius" data-bs-toggle="modal" data-bs-target="#UpdateRoleModal_{{$role->id}}"><i class="fas fa-edit"></i></button>
+                                        @include('modals.update_role')
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-danger border-radius"><i class="far fa-trash-alt"></i></button>
+                                        <form action="{{route('roles.destroy')}}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="hidden" name="role_id" value="{{$role->id}}"/>
+                                            <button class="btn btn-danger border-radius"><i class="far fa-trash-alt"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>

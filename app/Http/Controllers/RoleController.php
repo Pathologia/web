@@ -22,9 +22,15 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'libelle' => 'required',
+        ]);
+        Role::create([
+            'libelle'=>$request->libelle,
+        ]);
+        return redirect()->route('roles.show')->withErrors(['success'=>'Rôle créé avec succès']);
     }
 
     /**
@@ -68,9 +74,16 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'role_id' => 'required',
+            'libelle' => 'required',
+        ]);
+        Role::find($request->role_id)->update([
+            'libelle'=>$request->libelle,
+        ]);
+        return redirect()->route('roles.show')->withErrors(['success'=>'Rôle modifié avec succès']);
     }
 
     /**
@@ -79,8 +92,12 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'role_id' => 'required',
+        ]);
+        Role::find($request->role_id)->delete();
+        return redirect()->route('roles.show')->withErrors(['success'=>'Rôle supprimé avec succès']);
     }
 }

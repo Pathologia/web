@@ -48,7 +48,9 @@ Route::middleware('auth')->group(function () {
             Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
             Route::get('/roles', [RoleController::class, 'show'])->name('roles.show');
-            Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+            Route::post('/roles', [RoleController::class, 'create'])->name('roles.create');
+            Route::put('/roles', [RoleController::class, 'update'])->name('roles.update');
+            Route::delete('/roles', [RoleController::class, 'destroy'])->name('roles.destroy');
 
             Route::prefix('/logs')->group(function () {
             Route::get('/connexions', [HistoryConnectionController::class, 'show'])->name('historyconnections.show');
