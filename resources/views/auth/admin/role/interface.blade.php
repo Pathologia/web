@@ -20,11 +20,13 @@
                             <td>{{$role->libelle}}</td>
                             <td>{{Carbon\Carbon::parse($role->created_at)->format('d/m/Y')}}</td>
                             <td>
-                                <div class="col-6">
-                                    <button class="btn btn-warning border-radius"><i class="fas fa-edit"></i></button>
-                                </div>
-                                <div class="col-6">
-                                    <button class="btn btn-danger border-radius"><i class="far fa-trash-alt"></i></button>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-warning border-radius"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-danger border-radius"><i class="far fa-trash-alt"></i></button>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
