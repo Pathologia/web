@@ -5,6 +5,7 @@ use App\Http\Controllers\HistoryActionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\HistoryConnectionController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,9 +47,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/users', [UserController::class, 'create'])->name('users.create');
             Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
+            Route::get('/roles', [RoleController::class, 'show'])->name('roles.show');
+
             Route::prefix('/logs')->group(function () {
-            Route::get('/connexion', [HistoryConnectionController::class, 'show'])->name('historyconnection.show');
-            Route::get('/activites', [HistoryActionController::class, 'show'])->name('historyactivity.show');
+            Route::get('/connexions', [HistoryConnectionController::class, 'show'])->name('historyconnections.show');
+            Route::get('/activites', [HistoryActionController::class, 'show'])->name('historyactivitys.show');
             });
         });
     });

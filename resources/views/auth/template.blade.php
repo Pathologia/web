@@ -29,6 +29,7 @@
                 @yield('auth.admin.user.interface.show')
                 @yield('auth.admin.connection.interface.show')
                 @yield('auth.admin.activity.interface.show')
+                @yield('auth.admin.role.interface.show')
 
             </div>
         </div>

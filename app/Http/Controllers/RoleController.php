@@ -44,9 +44,10 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show()
     {
-        //
+        $roles = Role::all();
+        return view('auth.admin.role.interface', ['roles'=>$roles]);
     }
 
     /**

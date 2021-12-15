@@ -29,13 +29,18 @@
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('historyconnection.show')}}">
+                    <a class="nav-link" href="{{route('historyconnections.show')}}">
                         <i class="fas fa-chart-line"></i> Historique des connexions
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('historyactivity.show')}}">
+                    <a class="nav-link" href="{{route('historyactivitys.show')}}">
                         <i class="fas fa-chart-line"></i> Historique des activités
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('roles.show')}}">
+                        <i class="fas fa-project-diagram"></i> Gestion de rôles
                     </a>
                   </li>
                 </ul>
