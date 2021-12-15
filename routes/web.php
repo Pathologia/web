@@ -5,6 +5,7 @@ use App\Http\Controllers\HistoryActionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\HistoryConnectionController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/logout', [ConnexionController::class, 'logout'])->name('user.logout');
 
         Route::get('/resultats', [ResultController::class, 'show'])->name('resultats.show');
+
+        Route::get('/patients', [PatientController::class, 'show'])->name('patients.show');
+        Route::post('/patients', [PatientController::class, 'create'])->name('patients.create');
+        Route::get('/patients/{id}', [PatientController::class, 'index'])->name('patients.index');
 
         Route::prefix('/user')->group(function () {
             Route::get('/me', [UserController::class, 'show'])->name('user.show');

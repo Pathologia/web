@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -13,9 +16,10 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $patient = Patient::find($request->id);
+        return view('auth.patient.information', ['patient'=>$patient]);
     }
 
     /**
@@ -23,9 +27,26 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $crendentials = $this->validate($request, [
+            'sex' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'age' => 'required',
+            'email' => 'required',
+            'address_id' => 'required',
+        ]);
+        Patient::create([
+            'doc_id'=>Auth::user()->id,
+            'sex'=>$request->sex,
+            'firstname'=>$request->firstname,
+            'lastname'=>$request->lastname,
+            'age'=>Carbon::parse($request->age),
+            'email'=>$request->email,
+            'address_id'=>$request->address_id,
+        ]);
+        return redirect()->route('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
     }
 
     /**
@@ -45,9 +66,10 @@ class PatientController extends Controller
      * @param  \App\Models\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show()
     {
-        //
+        $patients = Patient::where('doc_id', Auth::user()->id)->get();
+        return view('auth.patient.interface', ['patients'=>$patients]);
     }
 
     /**

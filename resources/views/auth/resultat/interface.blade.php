@@ -36,7 +36,7 @@
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 col-xxl-4">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Résultat graphique</h6>
             </div>
             <div class="card-body">
                 <div class="chartjs-size-monitor">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="chartjs-size-monitor-shrink"></div>
                 </div>
-                <canvas id="donutChartJS" style="margin: 0 auto;" class="chartjs-render-monitor"></canvas>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
     </div>

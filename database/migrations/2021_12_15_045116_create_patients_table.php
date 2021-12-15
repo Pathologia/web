@@ -16,13 +16,13 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('doc_id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->text('firstname');
+            $table->text('lastname');
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('address_id');
             $table->boolean('sex');
-            $table->integer('age');
+            $table->timestamp('age');
             $table->timestamps();
             $table->foreign('doc_id')->references('id')->on('users');
         });

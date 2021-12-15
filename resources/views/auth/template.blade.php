@@ -31,6 +31,8 @@
                 @yield('auth.admin.activity.interface.show')
                 @yield('auth.admin.role.interface.show')
                 @yield('auth.admin.resultat.interface.show')
+                @yield('auth.patient.interface.show')
+                @yield('auth.patient.information.show')
 
             </div>
         </div>
