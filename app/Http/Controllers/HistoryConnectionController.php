@@ -49,7 +49,7 @@ class HistoryConnectionController extends Controller
     public function show()
     {
         $ent_users = User::all();
-        $connections = HistoryConnection::all();
+        $connections = HistoryConnection::orderBy('created_at', 'desc')->get();
         return view('auth.admin.connection.interface', ['connections'=>$connections,'ent_users'=>$ent_users]);
     }
 

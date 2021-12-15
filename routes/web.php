@@ -35,31 +35,37 @@ Route::middleware('guest')->group(function () {
 });
 
 // Route Auth -> Utilisateur authentifié (via Middleware)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('/auth')->group(function () {
         Route::get('/home', [ViewController::class, 'showHome'])->name('home.show');
         Route::get('/logout', [ConnexionController::class, 'logout'])->name('user.logout');
 
-        Route::get('/resultats', [ResultController::class, 'show'])->name('resultats.show');
+        Route::middleware(['isMedecin'])->group(function () {
+            Route::get('/resultats', [ResultController::class, 'show'])->name('resultats.show');
 
-        Route::get('/patients', [PatientController::class, 'show'])->name('patients.show');
-        Route::post('/patients', [PatientController::class, 'create'])->name('patients.create');
-        Route::get('/patients/{id}', [PatientController::class, 'index'])->name('patients.index');
-        Route::put('/patients', [PatientController::class, 'update'])->name('patients.update');
-        Route::put('/patients/rappartier', [PatientController::class, 'edit'])->name('patients.edit');
-        Route::delete('/patients', [PatientController::class, 'destroy'])->name('patients.destroy');
-        Route::post('/patients/search', [PatientController::class, 'search'])->name('patients.search');
-        Route::post('/patients/process', [PatientController::class, 'process'])->name('patients.process');
+            Route::get('/patients', [PatientController::class, 'show'])->name('patients.show');
+            Route::post('/patients', [PatientController::class, 'create'])->name('patients.create');
+            Route::get('/patients/{id}', [PatientController::class, 'index'])->name('patients.index');
+            Route::put('/patients', [PatientController::class, 'update'])->name('patients.update');
+            Route::put('/patients/rappartier', [PatientController::class, 'edit'])->name('patients.edit');
+            Route::delete('/patients', [PatientController::class, 'destroy'])->name('patients.destroy');
+            Route::post('/patients/search', [PatientController::class, 'search'])->name('patients.search');
+            Route::post('/patients/process', [PatientController::class, 'process'])->name('patients.process');
 
-        Route::post('/patients/rapport', [ReportController::class, 'create'])->name('rapports.create');
+            Route::post('/patients/rapport', [ReportController::class, 'create'])->name('rapports.create');
 
 
-        Route::prefix('/user')->group(function () {
-            Route::get('/me', [UserController::class, 'show'])->name('user.show');
-            Route::put('/me', [UserController::class, 'update'])->name('user.update');
-            Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
+            Route::prefix('/user')->group(function () {
+                Route::get('/me', [UserController::class, 'show'])->name('user.show');
+                Route::put('/me', [UserController::class, 'update'])->name('user.update');
+                Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
+            });
         });
+    });
+});
 
+Route::middleware(['auth','isAdmin'])->group(function () {
+    Route::prefix('/auth')->group(function () {
         Route::prefix('/admin')->group(function () {
             Route::get('/users', [UserController::class, 'create'])->name('users.create');
             Route::post('/users', [UserController::class, 'store'])->name('users.store');
@@ -70,8 +76,8 @@ Route::middleware('auth')->group(function () {
             Route::delete('/roles', [RoleController::class, 'destroy'])->name('roles.destroy');
 
             Route::prefix('/logs')->group(function () {
-            Route::get('/connexions', [HistoryConnectionController::class, 'show'])->name('historyconnections.show');
-            Route::get('/activites', [HistoryActionController::class, 'show'])->name('historyactivitys.show');
+                Route::get('/connexions', [HistoryConnectionController::class, 'show'])->name('historyconnections.show');
+                Route::get('/activites', [HistoryActionController::class, 'show'])->name('historyactivitys.show');
             });
         });
     });

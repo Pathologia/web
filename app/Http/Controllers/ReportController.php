@@ -36,7 +36,7 @@ class ReportController extends Controller
             'patient_id'=>$request->patient_id,
             'report'=>$request->report
         ]);
-        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Rapport créé avec succès']);
+        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Rapport créé avec succès']);
     }
 
     /**
