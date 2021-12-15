@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class WidgetSeeder extends Seeder
+class HistoryActionSeeder extends Seeder
 {
     /**
      * Run the database seeds.

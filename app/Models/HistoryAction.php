@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Form extends Model
+class HistoryAction extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id',
+        'label',
         'user_id',
-        'firstname',
-        'lastname',
-        'email',
-        'phone',
-        'subject',
-        'message',
+        'user_agent',
+        'ip_address',
+        'session_name',
         'created_at',
         'updated_at',
     ];

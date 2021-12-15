@@ -5,17 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Widget extends Model
+class PersonalData extends Model
 {
     use HasFactory;
     protected $fillable = [
         'id',
-        'libelle',
-        'url_intern',
-        'url_extern',
-        'rgba_color',
-        'icon',
-        'archived_at',
+        'patient_id',
+        'data_json',
         'created_at',
         'updated_at',
     ];
