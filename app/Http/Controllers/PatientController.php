@@ -132,4 +132,19 @@ class PatientController extends Controller
         Patient::find($request->patient_id)->delete();
         return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
     }
+
+    public function search(Request $request)
+    {
+        $crendentials = $this->validate($request, [
+            'search' => 'required',
+        ]);
+        $patients = Patient::where('firstname','like', '%'.$request->search.'%')
+        ->orWhere('lastname','like','%'.$request->search.'%')
+        ->orWhere('email','like', '%'.$request->search.'%')
+        ->orWhere('address_id','like', '%'.$request->search.'%')
+        ->orWhere('doc_id','like', '%'.$request->search.'%')
+        ->get();
+        dd($patients);
+        return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
+    }
 }

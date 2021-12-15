@@ -1,10 +1,14 @@
 @extends('auth.template')
 @section('auth.patient.interface.show')
 <div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 text-center">
+        <h3>Mes patients</h3>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2">
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#NewPatientModal">Créer un nouveau patient</button>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SearchPatientModal">Rechercher un patient externe</button>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="tab-content table-responsive">
@@ -42,4 +46,5 @@
     </div>
 </div>
 @include('modals.new_patient')
+@include('modals.search_patient')
 @endsection
