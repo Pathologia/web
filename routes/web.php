@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\HistoryConnectionController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('/patients', [PatientController::class, 'destroy'])->name('patients.destroy');
         Route::post('/patients/search', [PatientController::class, 'search'])->name('patients.search');
         Route::post('/patients/process', [PatientController::class, 'process'])->name('patients.process');
+
+        Route::post('/patients/rapport', [ReportController::class, 'create'])->name('rapports.create');
+
 
         Route::prefix('/user')->group(function () {
             Route::get('/me', [UserController::class, 'show'])->name('user.show');

@@ -51,6 +51,13 @@
                         <i class="fas fa-project-diagram"></i> Gestion de rôles
                     </a>
                   </li>
+                  <li class="nav-item"><hr></li>
+                  <li class="nav-item">
+                    <a class="nav-link text-decoration-none" href="/docs/erd.html" target="_blank"><i class="fas fa-database"></i> Documentation</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-decoration-none" href="/docs/api" target="_blank"><i class="fas fa-cogs"></i> PathologIA API</a>
+                  </li>
                   @endif
                 </ul>
               </div>

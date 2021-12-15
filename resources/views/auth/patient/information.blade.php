@@ -26,6 +26,8 @@
         @endif
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#NewFormulaireModal">Demander une analyse</button>
         <br><br>
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#NewRapportModal">Créer un rapport</button>
+        <br><br>
         <form action="{{route('patients.destroy')}}" method="post">
             @csrf
             @method('delete')
@@ -43,8 +45,26 @@
                 <hr>
             @endforeach
         @endif
+        <h3 class="text-center mb-3 mt-5">Rapports</h3>
+        @if(empty($rapports))
+            <p class="text-center">Aucun rapport pour le moment</p>
+        @else
+            @foreach ($rapports as $rapport)
+            <div class="card mb-4">
+                <div class="card-header">
+                    @foreach ($ent_users as $ent_user)
+                        @if($ent_user->id === $rapport->user_id)
+                            Docteur: {{$ent_user->firstname}} {{$ent_user->lastname}} - {{\Carbon\Carbon::parse($rapport->created_at)->format('d/m/Y')}}
+                        @endif
+                    @endforeach
+                </div>
+                <div class="card-body">{{$rapport->report}}</div>
+            </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @include('modals.update_patient')
 @include('modals.new_formulaire')
+@include('modals.new_rapport')
 @endsection

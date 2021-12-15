@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use App\Models\Report;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +21,9 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $patient = Patient::find($request->id);
-        return view('auth.patient.information', ['patient'=>$patient]);
+        $rapports = Report::where('patient_id', $patient->id)->orderBy('created_at','desc')->get();
+        $ent_users = User::all();
+        return view('auth.patient.information', ['patient'=>$patient, 'rapports'=>$rapports, 'ent_users'=>$ent_users]);
     }
 
     /**
