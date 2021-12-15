@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
             Route::get('/roles', [RoleController::class, 'show'])->name('roles.show');
+            Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
 
             Route::prefix('/logs')->group(function () {
             Route::get('/connexions', [HistoryConnectionController::class, 'show'])->name('historyconnections.show');

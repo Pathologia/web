@@ -10,7 +10,7 @@
             </div>
         </div>
     </div> --}}
-    <div class="col-12 col-sm-12 col-md-8 col-lg-12 col-xl-12 col-xxl-12">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="tab-content table-responsive">
             <table class="table table-striped table-responsive-sm table-responsive-md table-responsive-lg">
                 <thead>

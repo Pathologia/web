@@ -1,9 +1,14 @@
 @extends('auth.template')
 @section('auth.admin.role.interface.show')
 <div class="row">
-    <div class="col-12 col-sm-12 col-md-8 col-lg-12 col-xl-12 col-xxl-12">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10">
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#NewRoleModal">Créer un nouveau rôle</button>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="tab-content table-responsive">
-            <table class="table table-striped table-responsive-sm table-responsive-md table-responsive-lg">
+            <table class="table table-striped table-responsive-sm">
                 <thead>
                   <tr class="text-center">
                     <th>Libellé</th>
@@ -36,4 +41,6 @@
             </table>
         </div>
     </div>
+</div>
+@include('modals.new_role')
 @endsection
