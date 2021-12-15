@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
-use App\Models\Widget;
 use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
@@ -26,10 +25,9 @@ class ViewController extends Controller
     public function showHome()
     {
         $user = Auth::user();
-        $widgets = Widget::all();
         $roles = Role::all();
         return view('auth.menu', [
-            'user'=>$user, 'widgets'=>$widgets, 'roles'=>$roles
+            'user'=>$user, 'roles'=>$roles
         ]);
     }
 }
