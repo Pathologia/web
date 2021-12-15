@@ -45,9 +45,10 @@ class ResultController extends Controller
      * @param  \App\Models\Result  $result
      * @return \Illuminate\Http\Response
      */
-    public function show(Result $result)
+    public function show()
     {
-        //
+        $resultats = Result::where();
+        return view('auth.admin.role.interface', ['roles'=>$roles]);
     }
 
     /**

@@ -15,6 +15,7 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('doc_id');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
@@ -23,6 +24,7 @@ class CreatePatientsTable extends Migration
             $table->boolean('sex');
             $table->integer('age');
             $table->timestamps();
+            $table->foreign('doc_id')->references('id')->on('users');
         });
     }
 
