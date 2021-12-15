@@ -7,7 +7,7 @@
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#NewRoleModal">Créer un nouveau rôle</button>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-        <div class="tab-content table-responsive">
+        <div class="tab-content">
             <table class="table table-striped table-responsive-sm">
                 <thead>
                   <tr class="text-center">

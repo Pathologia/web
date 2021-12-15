@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -144,7 +145,8 @@ class PatientController extends Controller
         ->orWhere('address_id','like', '%'.$request->search.'%')
         ->orWhere('doc_id','like', '%'.$request->search.'%')
         ->get();
-        return view('auth.patient.liste', ["patients"=>$patients]);
+        $medecins = User::all();
+        return view('auth.patient.liste', ['patients'=>$patients, 'medecins'=>$medecins]);
     }
 
     public function process(Request $request)

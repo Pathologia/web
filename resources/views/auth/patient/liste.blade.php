@@ -9,6 +9,7 @@
             <table class="table table-striped table-responsive-sm">
                 <thead>
                   <tr class="text-center">
+                    <th>Médecin</th>
                     <th>Sexe</th>
                     <th>Prénom</th>
                     <th>Nom</th>
@@ -22,6 +23,13 @@
                     @else
                         @foreach ($patients as $patient)
                         <tr>
+                            <td>
+                                @foreach($medecins as $medecin)
+                                @if($medecin->id === $patient->doc_id)
+                                    {{$medecin->firstname}} {{$medecin->lastname}}
+                                @endif
+                                @endforeach
+                            </td>
                             <td>
                                 @if($patient->sex === 0) M
                                 @elseif($patient->sex === 1) F

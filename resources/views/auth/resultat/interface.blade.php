@@ -4,6 +4,7 @@
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-8 col-xxl-8">
         <div class="tab-content table-responsive">
+            <h3 class="text-center">Résultat(s) d'analyse(s)</h3>
             <table class="table table-striped table-responsive-sm">
                 <thead>
                   <tr class="text-center">

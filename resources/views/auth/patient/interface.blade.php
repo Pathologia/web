@@ -8,7 +8,7 @@
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#NewPatientModal">Créer un nouveau patient</button>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 col-xxl-2">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SearchPatientModal">Rechercher un patient externe</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SearchPatientModal">Rechercher un patient</button>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
         <div class="tab-content table-responsive">
