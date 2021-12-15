@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Result;
 use App\Http\Requests\StoreResultRequest;
 use App\Http\Requests\UpdateResultRequest;
+use App\Models\Patient;
+use Illuminate\Support\Facades\Auth;
 
 class ResultController extends Controller
 {
@@ -47,8 +49,9 @@ class ResultController extends Controller
      */
     public function show()
     {
-        $resultats = Result::where();
-        return view('auth.admin.role.interface', ['roles'=>$roles]);
+        $patients = Patient::where('doc_id', Auth::user()->id)->get();
+        $resultats = Result::all();
+        return view('auth.resultat.interface', ['resultats'=>$resultats, 'patients'=>$patients]);
     }
 
     /**

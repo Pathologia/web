@@ -14,5 +14,5 @@
 
     <script src="{{ mix('/js/app.js') }}"></script>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <script src="{{ mix('/js/chart-area-demo.js') }}"></script>
+    {{-- <script src="{{ mix('/js/chart-area-demo.js') }}"></script> --}}
 </head>

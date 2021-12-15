@@ -1,2 +1,3 @@
 require('../../node_modules/bootstrap');
-const Chart = require('../../node_modules/chart.js');
+window.Chart = require('chart.js').default;
+require('chart.js');

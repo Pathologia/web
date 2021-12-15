@@ -13,6 +13,7 @@ let ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/chart-area-demo.js', 'public/js')
+    .js('resources/js/chart.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .copy('resources/img', 'public/images', true)
     .copy('resources/video', 'public/videos', true)
