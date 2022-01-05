@@ -1,7 +1,7 @@
 <div class="modal fade" id="UpdatePatientModal_{{$patient->id}}">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <form action="{{URL::signedroute('patients.create')}}" method="post">
+            <form action="{{route('patients.create')}}" method="post">
                 <div class="modal-header">
                     <h4 class="modal-title">Modifier une fiche patient</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>

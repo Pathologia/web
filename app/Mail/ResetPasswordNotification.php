@@ -31,6 +31,6 @@ class ResetPasswordNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.reset-password')->with(['user' => $this->user, 'password' => $this->password]);
+        return $this->view('emails.reset-password')->subject('PathologIA: Réinitialisation de votre mot de passe')->with(['user' => $this->user, 'password' => $this->password]);
     }
 }

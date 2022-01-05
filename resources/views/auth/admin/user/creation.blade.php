@@ -6,7 +6,7 @@
                     <h5 class="card-title">Enregistrer un nouvel utilisateur</h5>
                 </div>
             </div>
-            <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('users.store')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-sm12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 row">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="mb-3 col-md-12">
                             <label class="form-label" for="role_id">Rôle</label>
-                            <select class="form-select">
+                            <select class="form-select" id="role_id" name="role_id">
                                 @foreach($roles as $role)
                                     <option value="{{$role->id}}">{{$role->libelle}}</option>
                                 @endforeach

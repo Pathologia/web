@@ -12,7 +12,7 @@
                     </div>
                     <h1>Génération de votre nouveau mot de passe du compte PathologIA</h1>
                     <hr>
-                    <h4>Bonjour {{$user->prenom}} {{$user->nom}},</h4>
+                    <h4>Bonjour {{$user->firstname}} {{$user->lastname}},</h4>
                     <p class="text-center">
                         Votre nouveau mot de passe pour votre compte PathologIA à bien été généré.
                         <br>
@@ -29,12 +29,12 @@
                         <br>
                         <hr>
                         <h2 class="fw-bold">Merci de changer de mot de passe dès votre prochaine connexion</h2>. <br>
-                        Vous pouvez vous connecter à l'adresse suivante: <a href="https://pathologia.ynov.com">https://pathologia.ynov.com</a>
+                        Vous pouvez vous connecter à l'adresse suivante: <a href="http://pathologia.services-ehe.fr">http://pathologia.services-ehe.fr</a>
                     </p>
                     <p class="mb-5">
                         Cordialement,
                         <br>
-                        Groupe PathologIA / <a href="mailto:contact@pathologia.fr">contact@pathologia.fr</a>
+                        Groupe PathologIA / <a href="mailto:sendmail.hackenathonsystem@gmail.com">sendmail.hackenathonsystem@gmail.com</a>
                     </p>
                     <br><br>
                     <p class="mt-5 font-weight-light font-italic">Message envoyé automatiquement par le système de gestion PathologIA</p>

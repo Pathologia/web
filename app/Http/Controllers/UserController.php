@@ -104,13 +104,13 @@ class UserController extends Controller
             'email' => 'required',
             'role_id' => 'required',
         ]);
-        $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', 18), 0, 50);
+        $password = substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', ceil(50/strlen($x)) )),1,50);
         $tmp = User::create([
             'firstname'=>$request->prenom,
             'lastname'=>$request->nom,
             'email'=>$request->email,
             'password'=>bcrypt($password),
-            'username'=>substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 19), 0, 6),
+            'username'=>substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', ceil(8/strlen($x)) )),1,6),
             'role_id'=>$request->role_id,
         ])->id;
         $user = User::find($tmp);
@@ -259,7 +259,7 @@ class UserController extends Controller
         if($request_user->email === $request->email)
         {
             Log::notice("Mot de passe réinitialisé: ".$request->username);
-            $password = substr(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!|0123456789', 3), 0, 50);
+            $password = substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', ceil(50/strlen($x)) )),1,50);
             $request_user->update(['password'=>bcrypt($password)]);
             Mail::to($request_user->email)->send(new ResetPasswordNotification($request_user, $password));
             return redirect()->route('login')->withErrors(['success'=> 'Mot de passe envoyé par email.']);

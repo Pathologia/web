@@ -50,7 +50,7 @@ class PatientController extends Controller
             'email'=>$request->email,
             'address_id'=>$request->address_id,
         ]);
-        return redirect()->route('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
+        return redirect()->URL::signedRoute('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
     }
 
     /**
@@ -90,7 +90,7 @@ class PatientController extends Controller
         Patient::find($request->patient_id)->update([
             'doc_id'=>Auth::user()->id,
         ]);
-        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient rappatrié avec succès']);
+        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Patient rappatrié avec succès']);
     }
 
     /**
@@ -119,7 +119,7 @@ class PatientController extends Controller
             'email'=>$request->email,
             'address_id'=>$request->address_id,
         ]);
-        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient modifié avec succès']);
+        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Patient modifié avec succès']);
     }
 
     /**
@@ -134,7 +134,7 @@ class PatientController extends Controller
             'patient_id' => 'required',
         ]);
         Patient::find($request->patient_id)->delete();
-        return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
+        return redirect()->URL::signedRoute('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
     }
 
     public function search(Request $request)

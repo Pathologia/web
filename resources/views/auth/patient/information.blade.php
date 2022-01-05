@@ -16,7 +16,7 @@
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdatePatientModal_{{$patient->id}}">Modifier la fiche patient</button>
         <br><br>
         @if ($patient->doc_id != Auth::user()->id)
-            <form action="{{route('patients.edit')}}" method="post">
+            <form action="{{URL::signedRoute('patients.edit')}}" method="post">
                 @csrf
                 @method('put')
                 <input type="hidden" name="patient_id" value="{{$patient->id}}">
@@ -28,7 +28,7 @@
         <br><br>
         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#NewRapportModal">Créer un rapport</button>
         <br><br>
-        <form action="{{route('patients.destroy')}}" method="post">
+        <form action="{{URL::signedRoute('patients.destroy')}}" method="post">
             @csrf
             @method('delete')
             <input type="hidden" name="patient_id" value="{{$patient->id}}">

@@ -31,6 +31,6 @@ class NewAccountNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.generate-account')->with(['user' => $this->user, 'password' => $this->password]);
+        return $this->view('emails.generate-account')->subject('PathologIA: Création de votre compte')->with(['user' => $this->user, 'password' => $this->password]);
     }
 }
