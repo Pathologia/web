@@ -29,7 +29,7 @@
                         <br>
                         <hr>
                         <h2 class="fw-bold">Merci de changer de mot de passe dès votre prochaine connexion</h2>. <br>
-                        Vous pouvez vous connecter à l'adresse suivante: <a href="http://pathologia.services-ehe.fr">http://pathologia.services-ehe.fr</a>
+                        Vous pouvez vous connecter à l'adresse suivante: <a href="https://pathologia.services-ehe.fr">https://pathologia.services-ehe.fr</a>
                     </p>
                     <p class="mb-5">
                         Cordialement,
