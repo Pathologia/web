@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use App\Models\HistoryAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,10 +32,17 @@ class ReportController extends Controller
             'patient_id' => 'required',
             'report' => 'required',
         ]);
-        Report::create([
+        $id = Report::create([
             'user_id'=>Auth::user()->id,
             'patient_id'=>$request->patient_id,
             'report'=>$request->report
+        ])->id;
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Création du rapport '.$id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
         return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Rapport créé avec succès']);
     }

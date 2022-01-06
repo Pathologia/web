@@ -8,13 +8,11 @@
         @else
         <i class="fas fa-female fa-2x"></i>
         @endif
-        <span>{{Carbon\Carbon::parse($patient->age)->format('d/m/Y')}} ({{Carbon\Carbon::now()->subYears((int)Carbon\Carbon::parse($patient->age)->format('Y'))->format('y')}} ans)</span>
+        <span>{{Carbon\Carbon::parse($patient->age)->format('d/m/Y')}} ({{Carbon\Carbon::now()->subYears((int)Carbon\Carbon::parse($patient->age)->format('Y'))->subMonths((int)Carbon\Carbon::parse($patient->age)->format('m'))->format('y')}} ans)</span>
         <hr>
         <p><a href="mailto:{{$patient->email}}"><i class="far fa-envelope"></i> {{$patient->email}}</a></p>
         <p><i class="fas fa-map-marker-alt"></i> {{$patient->address_id}}</p>
         <hr>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdatePatientModal_{{$patient->id}}">Modifier la fiche patient</button>
-        <br><br>
         @if ($patient->doc_id != Auth::user()->id)
             <form action="{{URL::signedRoute('patients.edit')}}" method="post">
                 @csrf
@@ -24,6 +22,10 @@
             </form>
             <br>
         @endif
+        @if ($patient->doc_id === Auth::user()->id)
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UpdatePatientModal_{{$patient->id}}">Modifier la fiche patient</button>
+
+        <br><br>
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#NewFormulaireModal">Demander une analyse</button>
         <br><br>
         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#NewRapportModal">Créer un rapport</button>
@@ -34,6 +36,7 @@
             <input type="hidden" name="patient_id" value="{{$patient->id}}">
             <button class="btn btn-danger">Supprimer ce patient</button>
         </form>
+        @endif
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-8 col-xxl-8 mt-3">
         <h3 class="text-center mb-3">Derniers résultats</h3>
@@ -46,7 +49,7 @@
             @endforeach
         @endif
         <h3 class="text-center mb-3 mt-5">Rapports</h3>
-        @if(empty($rapports))
+        @if(empty($rapports) || $rapports->isEmpty())
             <p class="text-center">Aucun rapport pour le moment</p>
         @else
             @foreach ($rapports as $rapport)

@@ -37,10 +37,18 @@ Route::middleware('guest')->group(function () {
 // Route Auth -> Utilisateur authentifié (via Middleware)
 Route::middleware(['auth'])->group(function () {
     Route::prefix('/auth')->group(function () {
-        Route::get('/home', [ViewController::class, 'showHome'])->name('home.show');
         Route::get('/logout', [ConnexionController::class, 'logout'])->name('user.logout');
 
+        Route::prefix('/user')->group(function () {
+            Route::get('/me', [UserController::class, 'show'])->name('user.show');
+            Route::put('/me', [UserController::class, 'update'])->name('user.update');
+            Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
+        });
+
         Route::middleware(['isMedecin'])->group(function () {
+            Route::get('/home', [ViewController::class, 'showHome'])->name('home.show');
+
+
             Route::get('/resultats', [ResultController::class, 'show'])->name('resultats.show');
 
             Route::get('/patients', [PatientController::class, 'show'])->name('patients.show');
@@ -53,13 +61,6 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/patients/process', [PatientController::class, 'process'])->name('patients.process');
 
             Route::post('/patients/rapport', [ReportController::class, 'create'])->name('rapports.create');
-
-
-            Route::prefix('/user')->group(function () {
-                Route::get('/me', [UserController::class, 'show'])->name('user.show');
-                Route::put('/me', [UserController::class, 'update'])->name('user.update');
-                Route::put('/me/password', [UserController::class, 'updatePassword'])->name('user.password.update');
-            });
         });
     });
 });
@@ -69,6 +70,8 @@ Route::middleware(['auth','isAdmin'])->group(function () {
         Route::prefix('/admin')->group(function () {
             Route::get('/users', [UserController::class, 'create'])->name('users.create');
             Route::post('/users', [UserController::class, 'store'])->name('users.store');
+            Route::put('/users', [UserController::class, 'archive'])->name('users.archive');
+            Route::put('/users/reactive', [UserController::class, 'unarchive'])->name('users.unarchive');
 
             Route::get('/roles', [RoleController::class, 'show'])->name('roles.show');
             Route::post('/roles', [RoleController::class, 'create'])->name('roles.create');

@@ -10,22 +10,26 @@
                 @method('PUT')
                 @csrf
                 <div class="row">
-                    <div class="col-12 col-sm12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 row">
+                    <div class="mb-3 col-12">
+                        <label class="form-label" for="email">Identifiant</label>
+                        <input type="text" class="form-control" value="{{$user->username}}" disabled>
+                    </div>
+                    <div class="col-12 row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label" for="prenom">Prénom</label>
-                            <input type="text" class="form-control @error('prenom') is-invalid @enderror" id="prenom" placeholder="Votre prénom" value="{{$user->firstname}}" disabled>
-                            @error('prenom')
+                            <label class="form-label" for="firstname">Prénom</label>
+                            <input type="text" class="form-control @error('firstname') is-invalid @enderror" id="firstname" name="firstname" placeholder="Votre prénom" value="{{$user->firstname}}">
+                            @error('firstname')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3 col-md-6">
-                            <label class="form-label" for="nom">Nom</label>
-                            <input type="text" class="form-control @error('nom') is-invalid @enderror" id="nom" placeholder="Votre nom" value="{{$user->lastname}}" disabled>
-                            @error('nom')
+                            <label class="form-label" for="lastname">Nom</label>
+                            <input type="text" class="form-control @error('lastname') is-invalid @enderror" id="lastname" name="lastname" placeholder="Votre nom" value="{{$user->lastname}}">
+                            @error('lastname')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-12">
                             <label class="form-label" for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" value="{{$user->email ?? old('email')}}" placeholder="Votre adresse email" required>
                             @error('email')

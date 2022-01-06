@@ -21,35 +21,35 @@
                             @enderror
                         </div>
                         <div class="col-6 form-floating mb-3 mt-3" id="id_MIMAT0005898">
-                            <input type="number" class="form-control" name="MIMAT0005898" min="0" max="20" id="MIMAT0005898" placeholder="MIMAT0005898" value="{{old('MIMAT0005898')}}" required>
+                            <input type="number" step="0.0000001" class="form-control" name="MIMAT0005898" min="0" max="20" id="MIMAT0005898" placeholder="MIMAT0005898" value="{{old('MIMAT0005898')}}" required>
                             <label for="MIMAT0005898">MIMAT0005898</label>
                             @error('MIMAT0005898')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-6 form-floating mb-3 mt-3" id="id_MIMAT0005951">
-                            <input type="number" class="form-control" name="MIMAT0005951" min="0" max="20" id="MIMAT0005951" placeholder="MIMAT0005951" value="{{old('MIMAT0005951')}}" required>
+                            <input type="number" step="0.0000001" class="form-control" name="MIMAT0005951" min="0" max="20" id="MIMAT0005951" placeholder="MIMAT0005951" value="{{old('MIMAT0005951')}}" required>
                             <label for="MIMAT0005951">MIMAT0005951</label>
                             @error('MIMAT0005951')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-6 form-floating mb-3 mt-3" id="id_MIMAT0019691">
-                            <input type="number" class="form-control" name="MIMAT0019691" min="0" max="20" id="MIMAT0019691" placeholder="MIMAT0019691" value="{{old('MIMAT0019691')}}" required>
+                            <input type="number" step="0.0000001" class="form-control" name="MIMAT0019691" min="0" max="20" id="MIMAT0019691" placeholder="MIMAT0019691" value="{{old('MIMAT0019691')}}" required>
                             <label for="MIMAT0019691">MIMAT0019691</label>
                             @error('MIMAT0019691')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-6 form-floating mb-3 mt-3" id="id_MIMAT0027623">
-                            <input type="number" class="form-control" name="MIMAT0027623" min="0" max="20" id="MIMAT0027623" placeholder="MIMAT0027623" value="{{old('MIMAT0027623')}}" required>
+                            <input type="number" step="0.0000001" class="form-control" name="MIMAT0027623" min="0" max="20" id="MIMAT0027623" placeholder="MIMAT0027623" value="{{old('MIMAT0027623')}}" required>
                             <label for="MIMAT0027623">MIMAT0027623</label>
                             @error('MIMAT0027623')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="col-6 form-floating mb-3 mt-3" id="id_MIMAT0027650">
-                            <input type="number" class="form-control" name="MIMAT0027650" min="0" max="20" id="MIMAT0027650" placeholder="MIMAT0027650" value="{{old('MIMAT0027650')}}" required>
+                            <input type="number" step="0.0000001" class="form-control" name="MIMAT0027650" min="0" max="20" id="MIMAT0027650" placeholder="MIMAT0027650" value="{{old('MIMAT0027650')}}" required>
                             <label for="MIMAT0027650">MIMAT0027650</label>
                             @error('MIMAT0027650')
                                 <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>

@@ -9,12 +9,12 @@ class ViewController extends Controller
 {
     public function show()
     {
-        return view('public.template');
+        return view('public.login');
     }
 
     public function showPassword()
     {
-        return view('public.template.template');
+        return view('public.password');
     }
 
     public function redirectLogin()

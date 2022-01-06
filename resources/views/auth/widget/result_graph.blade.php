@@ -4,7 +4,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Progression des résultats d'analyses</h6>
         </div>
         <div class="card-body">
-            <h4 class="small font-weight-bold">Mme Michoux <span class="float-right">60%</span></h4>
+            <h4 class="small font-weight-bold">Mme Michoux <span class="float-right">100%</span></h4>
             <div class="progress mb-4">
                 <div class="progress-bar bg-success text-center" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                     <a class="text-white" href="">Consulter les résultats</a>

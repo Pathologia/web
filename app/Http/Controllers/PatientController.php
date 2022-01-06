@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use App\Models\HistoryAction;
+use App\Models\PersonalData;
 use App\Models\Report;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
@@ -41,7 +44,7 @@ class PatientController extends Controller
             'email' => 'required',
             'address_id' => 'required',
         ]);
-        Patient::create([
+        $id = Patient::create([
             'doc_id'=>Auth::user()->id,
             'sex'=>$request->sex,
             'firstname'=>$request->firstname,
@@ -49,6 +52,13 @@ class PatientController extends Controller
             'age'=>Carbon::parse($request->age),
             'email'=>$request->email,
             'address_id'=>$request->address_id,
+        ])->id;
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Création du patient '.$id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
         return redirect()->URL::signedRoute('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
     }
@@ -90,7 +100,14 @@ class PatientController extends Controller
         Patient::find($request->patient_id)->update([
             'doc_id'=>Auth::user()->id,
         ]);
-        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Patient rappatrié avec succès']);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Rappatriement du patient '.$request->patient_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
+        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient rappatrié avec succès']);
     }
 
     /**
@@ -119,7 +136,14 @@ class PatientController extends Controller
             'email'=>$request->email,
             'address_id'=>$request->address_id,
         ]);
-        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Patient modifié avec succès']);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'MAJ du patient '.$request->patient_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
+        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Patient modifié avec succès']);
     }
 
     /**
@@ -133,8 +157,15 @@ class PatientController extends Controller
         $crendentials = $this->validate($request, [
             'patient_id' => 'required',
         ]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Suppression du patient '.$request->patient_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
         Patient::find($request->patient_id)->delete();
-        return redirect()->URL::signedRoute('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
+        return redirect()->route('patients.show')->withErrors(['success'=>'Patient supprimé avec succès']);
     }
 
     public function search(Request $request)
@@ -160,7 +191,8 @@ class PatientController extends Controller
         ]);
         $type_formulaire = $request->type_formulaire;
         $patient = Patient::find($request->patient_id);
-        if($request->type_formulaire === 0)
+        $DATA = [];
+        if($request->type_formulaire === (string)0)
         {
             $crendentials = $this->validate($request, [
                 'MIMAT0005898' => 'required',
@@ -169,21 +201,30 @@ class PatientController extends Controller
                 'MIMAT0027623' => 'required',
                 'MIMAT0027650' => 'required',
             ]);
-            $MIMAT = [
+            $DATA = [
                 'MIMAT0005898'=>$request->MIMAT0005898,
                 'MIMAT0005951'=>$request->MIMAT0005951,
                 'MIMAT0019691'=>$request->MIMAT0019691,
                 'MIMAT0027623'=>$request->MIMAT0027623,
                 'MIMAT0027650'=>$request->MIMAT0027650,
+                'type_formulaire'=>$type_formulaire
             ];
-            return response([$type_formulaire, $patient, $MIMAT],200);
+
+            // return response([$type_formulaire, $patient, $MIMAT],200);
         }
         elseif($request->type_formulaire === 1)
         {
             $crendentials = $this->validate($request, [
                 'imagerie' => 'required',
             ]);
-            return response([$type_formulaire, $patient, base64_encode($request->file('imagerie')->get())],200);
+            $DATA = ['imagerie'=>$request->file('imagerie')->get(),'type_formulaire'=>$type_formulaire];
+            // $DATA = Arr::add(['name' => 'imagerie'], 'picture', $request->file('imagerie')->get());
+            // return response([$type_formulaire, $patient, base64_encode($request->file('imagerie')->get())],200);
         }
+        PersonalData::create([
+            'patient_id'=>$patient->id,
+            'data_json'=>json_encode($DATA),
+        ]);
+        return back()->withErrors(['success'=>"Votre demande d'analyse à bien été envoyée au serveur. Vos résultats sont en cours de traitement."]);
     }
 }

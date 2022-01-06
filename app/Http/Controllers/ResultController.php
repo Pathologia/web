@@ -6,6 +6,7 @@ use App\Models\Result;
 use App\Http\Requests\StoreResultRequest;
 use App\Http\Requests\UpdateResultRequest;
 use App\Models\Patient;
+use App\Models\PersonalData;
 use Illuminate\Support\Facades\Auth;
 
 class ResultController extends Controller
@@ -51,7 +52,8 @@ class ResultController extends Controller
     {
         $patients = Patient::where('doc_id', Auth::user()->id)->get();
         $resultats = Result::all();
-        return view('auth.resultat.interface', ['resultats'=>$resultats, 'patients'=>$patients]);
+        $analyses = PersonalData::all();
+        return view('auth.resultat.interface', ['resultats'=>$resultats, 'patients'=>$patients, 'analyses'=>$analyses]);
     }
 
     /**

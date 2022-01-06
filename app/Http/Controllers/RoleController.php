@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryAction;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -27,8 +29,15 @@ class RoleController extends Controller
         $crendentials = $this->validate($request, [
             'libelle' => 'required',
         ]);
-        Role::create([
+        $id = Role::create([
             'libelle'=>$request->libelle,
+        ])->id;
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Création du role '.$id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
         return redirect()->route('roles.show')->withErrors(['success'=>'Rôle créé avec succès']);
     }
@@ -83,6 +92,13 @@ class RoleController extends Controller
         Role::find($request->role_id)->update([
             'libelle'=>$request->libelle,
         ]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'MAJ du role '.$request->role_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
         return redirect()->route('roles.show')->withErrors(['success'=>'Rôle modifié avec succès']);
     }
 
@@ -96,6 +112,13 @@ class RoleController extends Controller
     {
         $crendentials = $this->validate($request, [
             'role_id' => 'required',
+        ]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>'Suppression du role '.$request->role_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
         Role::find($request->role_id)->delete();
         return redirect()->route('roles.show')->withErrors(['success'=>'Rôle supprimé avec succès']);

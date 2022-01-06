@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Mail\NewAccountNotification;
 use App\Mail\ResetPasswordNotification;
+use App\Models\HistoryAction;
+use App\Models\HistoryConnection;
 use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -116,6 +119,13 @@ class UserController extends Controller
         $user = User::find($tmp);
         Log::info("Création utilisateur: ".$user->id);
         Mail::to($user->email)->send(new NewAccountNotification($user, $password));
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>"Création de l'utilisateur ".$user->role_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
         return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur créé avec succès']);
     }
 
@@ -154,11 +164,9 @@ class UserController extends Controller
      */
     public function show()
     {
-        $user = Auth::user();
+        $user = User::find(Auth::user()->id);
         $roles = Role::all();
-        return view('auth.user.profil', [
-            'user'=>$user,'roles'=>$roles
-        ]);
+        return view('auth.user.profil', ['user'=>$user,'roles'=>$roles]);
     }
 
     public function edit()
@@ -202,18 +210,57 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required',
         ]);
-        $user = User::find(Auth::user()->id);
-        $user->update([
+        $user = User::find(Auth::user()->id)->update([
+            'firstname'=>$request->firstname,
+            'lastname'=>$request->lastname,
             'email'=>$request->email,
+        ]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>"MAJ du profil",
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
         return redirect()->route('user.show')->withErrors(['success' => 'Vos informations de compte ont bien été enregistrées']);
     }
 
-    public function destroy()
+    public function unarchive(Request $request)
     {
-        //
+        $this->validate($request, [
+            'user_id' => 'required',
+        ]);
+        User::find($request->user_id)->update(['archived_at'=>null]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>"Réactivation du compte ".$request->user_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
+        return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur réactivé']);
+    }
+
+    public function archive(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => 'required',
+        ]);
+        User::find($request->user_id)->update([
+            'archived_at'=>Carbon::now(),
+        ]);
+        HistoryAction::create([
+            'user_id'=>Auth::user()->id,
+            'label'=>"Archive du compte ".$request->user_id,
+            'user_agent'=>$request->server('HTTP_USER_AGENT'),
+            'ip_address'=>$request->ip(),
+            'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+        ]);
+        return redirect()->route('users.create')->withErrors(['success' => 'Utilisateur modifié avec succès']);
     }
 
             /**
@@ -262,6 +309,13 @@ class UserController extends Controller
             $password = substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ-_*+/&?!0123456789', ceil(50/strlen($x)) )),1,50);
             $request_user->update(['password'=>bcrypt($password)]);
             Mail::to($request_user->email)->send(new ResetPasswordNotification($request_user, $password));
+            HistoryAction::create([
+                'user_id'=>$request_user->id,
+                'label'=>"Regénération du mot de passe",
+                'user_agent'=>$request->server('HTTP_USER_AGENT'),
+                'ip_address'=>$request->ip(),
+                'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+            ]);
             return redirect()->route('login')->withErrors(['success'=> 'Mot de passe envoyé par email.']);
         }
         Log::notice("Tentative de reset password sur utilisateur: ".$request->username);
@@ -307,8 +361,40 @@ class UserController extends Controller
         if($request->password1 === $request->password2 && Hash::check($request->password0, $user->password))
         {
             $user->update(['password'=>bcrypt($request->password1)]);
+            HistoryAction::create([
+                'user_id'=>Auth::user()->id,
+                'label'=>"Modification du mot de passe",
+                'user_agent'=>$request->server('HTTP_USER_AGENT'),
+                'ip_address'=>$request->ip(),
+                'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+            ]);
             return redirect()->route('user.show')->withErrors(['success'=> 'Mot de passe enregistré.']);
         }
         return redirect()->route('user.show')->withErrors(['error'=> 'Les 2 mots de passe ne correspondent pas.']);
+    }
+
+    public function emailVerify($email,$id, Request $request)
+    {
+        $user = User::find($id);
+        if($user->email === $email)
+        {
+            $user->update(['email_verified_at'=>Carbon::now()]);
+            Auth::loginUsingId($id);
+            HistoryAction::create([
+                'user_id'=>Auth::user()->id,
+                'label'=>"Vérification du mot de passe",
+                'user_agent'=>$request->server('HTTP_USER_AGENT'),
+                'ip_address'=>$request->ip(),
+                'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+            ]);
+            HistoryConnection::create([
+                'user_id'=>$user->id,
+                'user_agent'=>$request->server('HTTP_USER_AGENT'),
+                'ip_address'=>$request->ip(),
+                'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
+            ]);
+            return redirect()->route('user.show')->withErrors(['success'=>'Votre email de récupération à bien été vérifié']);
+        }
+        return redirect()->route('user.show')->withErrors(['error'=>'Impossible de vérifier votre adresse email de récupération']);
     }
 }

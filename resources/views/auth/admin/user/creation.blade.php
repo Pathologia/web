@@ -1,4 +1,4 @@
-<div class="tab-pane fade show active" id="nouveau" role="tabpanel">
+<div class="tab-pane fade" id="nouveau" role="tabpanel" wfd-invisible="true">
     <div class="card">
         <div class="card-body">
             <div class="row">

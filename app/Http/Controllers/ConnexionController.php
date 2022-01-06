@@ -56,7 +56,7 @@ class ConnexionController extends Controller
         } else {
             $request->remember = false;
         }
-        if (Auth::attempt($crendentials, $request->remember)) {
+        if (Auth::attempt($crendentials, $request->remember) && empty(Auth::user()->archived_at) && Auth::user()->archived_at === null) {
             Log::info("Connexion de l'utilisateur " . Auth::user()->id . " le " . Carbon::now());
             $user = User::find(Auth::user()->id);
             $user->update(['connected_at' => Carbon::now()]);
@@ -68,8 +68,19 @@ class ConnexionController extends Controller
                 'ip_address'=>$request->ip(),
                 'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
             ]);
-
-            return redirect()->route('home.show');
+            if($user->role_id === 1)
+            {
+                return redirect()->route('users.create');
+            }
+            elseif($user->role_id >= 2)
+            {
+                return redirect()->route('home.show');
+            }
+        }
+        else
+        {
+            Auth::logout();
+            return redirect()->route('login')->withErrors(['error'=>'Connexion impossible']);
         }
         return redirect()->route('login')->withErrors(['error' => 'Connexion impossible. Veuillez vérifier votre identifiant / mot de passe']);
     }

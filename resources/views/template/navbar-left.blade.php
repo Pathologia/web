@@ -28,7 +28,6 @@
                         Patients
                         </a>
                     </li>
-                  <li class="nav-item"><hr></li>
                 @endif
 
                   @if(Auth::user()->role_id === 1)
@@ -54,7 +53,6 @@
                     </a>
                   </li>
                   <li class="nav-item"><hr></li>
-                  @endif
 
                   <li class="nav-item">
                     <a class="nav-link text-decoration-none" href="/docs/erd.html" target="_blank"><i class="fas fa-database"></i> Documentation</a>
@@ -62,6 +60,8 @@
                   <li class="nav-item">
                     <a class="nav-link text-decoration-none" href="/docs/api" target="_blank"><i class="fas fa-cogs"></i> PathologIA API</a>
                   </li>
+                  @endif
+
                 </ul>
               </div>
         </div>

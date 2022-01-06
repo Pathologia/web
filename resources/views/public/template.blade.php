@@ -37,10 +37,10 @@
                                             @enderror
                                             <div class="tab-content bg-transparent">
                                                 <div class="tab-pane active" id="tab_connexion" role="tabpanel">
-                                                    @include('public.login')
+                                                    @yield('public.login.show')
                                                 </div>
-                                                <div class="tab-pane" id="tab_password" role="tabpanel">
-                                                    @include('public.password')
+                                                <div class="tab-pane active" id="tab_password" role="tabpanel">
+                                                    @yield('public.password.show')
                                                 </div>
                                             </div>
                                         </div>

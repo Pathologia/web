@@ -11,7 +11,7 @@
                     <input type="hidden" name="patient_id" value="{{$patient->id}}">
                     <div class="form-floating mb-3 mt-3">
                         <label class="form-label" for="report">Rapport</label>
-                        <textarea rows="5" class="form-control @error('report') is-invalid @enderror" id="report" name="report" placeholder="Rapport sur le patient" required>{{old('report')}}</textarea>
+                        <textarea style="height: 200px !important;" class="form-control @error('report') is-invalid @enderror" id="report" name="report" placeholder="Rapport" required>{{old('report')}}</textarea>
                     </div>
                     @error('libelle')
                         <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>

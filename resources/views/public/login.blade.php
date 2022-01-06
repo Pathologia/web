@@ -1,3 +1,5 @@
+@extends('public.template')
+@section('public.login.show')
 <form action="{{URL::signedRoute('login.connect')}}" method="POST">
     @csrf
     <div class="mt-2 mb-4 form-floating">
@@ -26,6 +28,7 @@
         <button type="submit" class="btn btn-md btn-secondary">Se connecter</button>
     </div>
     <div class="text-center mt-4 mb-1">
-        <a class="text-white text-decoration-none" href="#">Mot de passe oublié ?</a>
+        <a class="text-white text-decoration-none" href="{{route('password.show')}}">Mot de passe oublié ?</a>
     </div>
 </form>
+@endsection
