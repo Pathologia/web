@@ -44,7 +44,7 @@ class ReportController extends Controller
             'ip_address'=>$request->ip(),
             'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
-        return redirect()->URL::signedRoute('patients.index', $request->patient_id)->withErrors(['success'=>'Rapport créé avec succès']);
+        return redirect()->route('patients.index', $request->patient_id)->withErrors(['success'=>'Rapport créé avec succès']);
     }
 
     /**

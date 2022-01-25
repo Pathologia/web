@@ -14,7 +14,7 @@
         <p><i class="fas fa-map-marker-alt"></i> {{$patient->address_id}}</p>
         <hr>
         @if ($patient->doc_id != Auth::user()->id)
-            <form action="{{URL::signedRoute('patients.edit')}}" method="post">
+            <form action="{{route('patients.edit')}}" method="post">
                 @csrf
                 @method('put')
                 <input type="hidden" name="patient_id" value="{{$patient->id}}">
@@ -30,7 +30,7 @@
         <br><br>
         <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#NewRapportModal">Créer un rapport</button>
         <br><br>
-        <form action="{{URL::signedRoute('patients.destroy')}}" method="post">
+        <form action="{{route('patients.destroy')}}" method="post">
             @csrf
             @method('delete')
             <input type="hidden" name="patient_id" value="{{$patient->id}}">

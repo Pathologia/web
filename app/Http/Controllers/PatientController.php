@@ -60,7 +60,7 @@ class PatientController extends Controller
             'ip_address'=>$request->ip(),
             'session_name'=>$request->server('COMPUTERNAME')."/".$request->server('USERNAME'),
         ]);
-        return redirect()->URL::signedRoute('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
+        return redirect()->route('patients.show')->withErrors(['success'=>'Patient créé avec succès']);
     }
 
     /**

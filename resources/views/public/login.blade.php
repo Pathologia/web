@@ -1,6 +1,6 @@
 @extends('public.template')
 @section('public.login.show')
-<form action="{{URL::signedRoute('login.connect')}}" method="POST">
+<form action="{{route('login.connect')}}" method="POST">
     @csrf
     <div class="mt-2 mb-4 form-floating">
         <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" id="username" placeholder="Votre identifiant" />

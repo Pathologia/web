@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-6 text-start">
                 <p>
-                    Patholog IA &copy;
+                    Patholog IA &copy; - V1.0
                 </p>
             </div>
         </div>
