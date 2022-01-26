@@ -21,4 +21,16 @@ class Patient extends Model
         'updated_at',
         'email_verified_at',
     ];
+
+    public function results() {
+        return $this->hasMany(Result::class);
+    }
+
+    public function reports() {
+        return $this->hasMany(Report::class);
+    }
+
+    public function data() {
+        return $this->hasMany(PersonalData::class);
+    }
 }

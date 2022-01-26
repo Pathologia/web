@@ -27,6 +27,18 @@ class User extends Authenticatable
         'archived_at',
     ];
 
+    public function role() {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function actions() {
+        return $this->hasMany(HistoryAction::class);
+    }
+
+    public function connections() {
+        return $this->hasMany(HistoryConnection::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
