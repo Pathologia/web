@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @servers(['web' => 'deployer@192.168.68.69'])
 
 @setup
@@ -38,4 +39,10 @@
 
     echo 'Linking current release'
     ln -nfs {{ $new_release_dir }} {{ $app_dir }}/current
+=======
+@servers(['web' => 'remote_username@remote_host'])
+
+@task('list', ['on' => 'web'])
+    ls -l
+>>>>>>> 31fb8cc282a33e4ca71a9e3952da6c0606596d67
 @endtask
