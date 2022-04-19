@@ -2,7 +2,7 @@
 
 ## A propos de PathologIA
 
-Le projet PathologIA sorti d'un projet étudiant, à pour but de venir en aide à la médecine via une plateforme en ligne d'aide à la décision.
+Le projet PathologIA sorti d'un projet étudiant, a pour but de venir en aide à la médecine via une plateforme en ligne d'aide à la décision.
 
 ### Equipe de développement
 
