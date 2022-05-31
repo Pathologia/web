@@ -3,17 +3,27 @@
 ## Code d'accès
 ### WEB
 Identifiant - Mot de passe - Nom - Prénom
+
 root = root (super admin) - Maxime - LARROZE
+
 HC3KAP - root - Ornella    - HELVAS
+
 9IA87O - root - Solene - MARTINI
+
 8HKZ4B - root - Thibaut - ANDRE
+
 69MQEP - root (super admin) - Super - Admin
+
 6OB1DU - root - Dr Maxime - LARROZE
+
 CS6KJO - root - Compte - Démo
+
 7X81SR - root - Maxime - LARROZE
+
 
 ### Serveur
 Serveur: 192.168.68.69 - id: itech - mdp: Itech2021
+
 Serveur mysql : admin / Azerty@123
 
 
