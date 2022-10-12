@@ -1,4 +1,4 @@
-<p align="center"><a href="https://pathologia.ydays-lyon.fr" target="_blank"><img src="https://gitlab.com/ynov-pathologia/web/-/raw/main/public/img/logo/logo.png" width="400"></a></p>
+lien plateforme : https://pathologia.ydayslyon.fr
 
 ## Code d'accès
 ### WEB
