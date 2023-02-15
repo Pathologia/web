@@ -18,7 +18,7 @@
                 @csrf
                 @method('put')
                 <input type="hidden" name="patient_id" value="{{$patient->id}}">
-                <button class="btn btn-warning">Rappatrier ce patient</button>
+                <button class="btn btn-warning">Rapatrier ce patient</button>
             </form>
             <br>
         @endif

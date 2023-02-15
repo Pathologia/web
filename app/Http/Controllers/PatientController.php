@@ -225,6 +225,12 @@ class PatientController extends Controller
             'patient_id'=>$patient->id,
             'data_json'=>json_encode($DATA),
         ]);
+        if($request->type_formulaire === (string)0)
+        {
+            $command = shell_exec("python D:/Users/remic/Desktop/YNOV/Pathologia/Repo/webservices/code_final/ml.py");
+            echo $command;
+        }
+
         return back()->withErrors(['success'=>"Votre demande d'analyse à bien été envoyée au serveur. Vos résultats sont en cours de traitement."]);
     }
 }
