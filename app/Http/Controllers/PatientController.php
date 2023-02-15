@@ -227,7 +227,7 @@ class PatientController extends Controller
         ]);
         if($request->type_formulaire === (string)0)
         {
-            $command = shell_exec("python D:/Users/remic/Desktop/YNOV/Pathologia/Repo/webservices/code_final/ml.py");
+            $command = shell_exec("python ~/webservices/code_final/ml.py");
             echo $command;
         }
 
